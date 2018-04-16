@@ -4,9 +4,92 @@
 	<link rel="manifest" href="/manifest.json">
 	<link href="dist/hamburgers.css" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway">
   <title>Project233</title>
  <link rel="icon" href="https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW" type="image/gif" sizes="16x16">
   <style>
+  
+   .hamburger {
+  padding: 15px 15px;
+  position: fixed;
+   top:0;
+    left:0;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  overflow: visible;
+  outline:0;
+  z-index:99;}
+  .hamburger:hover {
+    opacity: 0.7; }
+
+.hamburger-box {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+   position: fixed;
+   top:15px;
+    left:10px;
+  outline:0;
+  z-index:99;}
+
+.hamburger-inner {
+  display: block;
+  top: 0%;
+  margin-top: -2px;
+  outline:0;}
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 24px;
+    height: 2px;
+    background-color: black;
+    border-radius: 0px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+    outline:0;}
+  .hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block;
+    outline:0;}
+  .hamburger-inner::before {
+    top: -10px;
+    outline:0;}
+  .hamburger-inner::after {
+    bottom: -10px;
+    outline:0;}
+  
+  .hamburger--slider .hamburger-inner {
+  top: 2px;
+  outline:0;}
+  .hamburger--slider .hamburger-inner::before {
+    top: 10px;
+    transition-property: transform, opacity;
+    transition-timing-function: ease;
+    transition-duration: 0.15s;
+    outline:0;}
+  .hamburger--slider .hamburger-inner::after {
+    top: 20px;
+    outline:0;}
+
+.hamburger--slider.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+  outline:0;}
+  .hamburger--slider.is-active .hamburger-inner::before {
+    transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+    opacity: 0;
+    outline:0;}
+  .hamburger--slider.is-active .hamburger-inner::after {
+    transform: translate3d(0, -20px, 0) rotate(-90deg);
+    outline:0;}
   
   body{
 	display:grid;
@@ -22,8 +105,6 @@
     min-width: 100%; 
     min-height: 100%;
     z-index: -1;
-    -webkit-filter: brightness(50%); /* Safari 6.0 - 9.0 */
-    filter: brightness(50%);
     }
 
   	h1 {
@@ -31,10 +112,10 @@
 	grid-row: row1/row6;
 	text-align:center;
     letter-spacing: 3px;
-    font-family: "Open Sans Extrabold", Helvetica Black, arial black;
-    font-weight: extrabold;
-    color: white;
-    margin-top:50%;
+    font-family: 'Raleway';
+    font-weight:100;
+    color: black;
+    margin-top:30%;
     margin-bottom:-2%;
 	}
     
@@ -43,32 +124,91 @@
 	grid-row: row7;
     text-align: center;
     width: 100%;
-    font-family: "Open Sans", Helvetica, arial;
-    color: white;
+    font-family: "Raleway", Helvetica, arial;
+    color: black;
     }
     
     .button {
-    grid-column: col4 / col8;
-	grid-row: row8;
-    -webkit-align-self: center;
-    align-self:center;
-  border-radius:10px;
-  padding:10px;
+    position:fixed;
+    bottom:40px;
+    right:-25px;
+  padding:15px;
   font-family: 'Open Sans', Helvetica, Arial;
-  background: linear-gradient(#02AAB0, #02AAB0);
-  color: black;
-  font-size: 3vw;
+  background: #d63a0e;
+  color: white;
+  font-size: 12px;
   cursor: pointer;
   text-align:center;
   text-decoration: none;
+  transform: rotate(90deg);
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
 }
     
    </style>
 </head>
 <body>
 
-<img src="https://cdn.stocksnap.io/img-thumbs/960w/TZHYCANBO9.jpg" alt="background">
+<img src="https://cdn.stocksnap.io/img-thumbs/960w/UB2UXMASSW.jpg" alt="background">
 	
+<div id="myNav" class="overlay">
+  <div class="overlay-content">
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
 <button class="hamburger hamburger--slider" type="button">
   <span class="hamburger-box">
     <span class="hamburger-inner"></span>
@@ -76,20 +216,33 @@
 </button>
 
 <h1 style="font-size:10vw;"> PROJECT 233 </h1>
-<p  style="font-size:3vw;">smarter working. by <span style="font-weight:800"> M MOSER ASSOCIATES</span></p>
+<p  style="font-size:3vw;">smarter working. by <span style="font-weight:900"> M MOSER ASSOCIATES</span></p>
 
 <a class="button" href="/contact">INFORMATION<class="button"></a>
 
 <script>
-  // Look for .hamburger
   var hamburger = document.querySelector(".hamburger");
-  // On click
-  hamburger.addEventListener("click", function() {
-    // Toggle class "is-active"
-    hamburger.classList.toggle("is-active");
-    // Do something else, like open/close menu
+  hamburger.addEventListener("click", function openNav() {
+  		document.getElementById("myNav").style.height = "100%";
+		this.classList.toggle("is-active");
+    	if (this.classList.contains('is-active')){
+      	openNav();
+    } else {
+      closeNav();
+    }
   });
 </script>
+
+<script>
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+</script>
+
 	
 </body>
 </html>
