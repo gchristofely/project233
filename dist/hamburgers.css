@@ -25,7 +25,7 @@
 
 .hamburger-inner {
   display: block;
-  top: 50%;
+  top: 0%;
   margin-top: -2px;
   outline:0;}
   .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
