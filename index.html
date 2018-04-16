@@ -1,67 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Project233</title>
  <link rel="icon" href="https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW" type="image/gif" sizes="16x16">
   <style>
+  
+  body{
+	display:grid;
+    grid-template-columns:[col1]8%[col2]8%[col3]8%[col4]8%[col5]8%[col6]8%[col7]8%[col8]8%[col9]8%[col10]8%[end];
+    grid-template-rows:[row1]8%[row2]8%[row3]8%[row4]8%[row5]8%[row6]8%[row7]8%[row8]8%[row9]8%[row10]8%[row11]8%[end];
+  	grid-gap: 2%;
+    }
+  
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1;
+    -webkit-filter: brightness(50%); /* Safari 6.0 - 9.0 */
+    filter: brightness(50%);
+    }
 
   	h1 {
-    text-align: center;
+    grid-column: col1 / col12;
+	grid-row: row1/row6;
+	text-align:center;
     letter-spacing: 3px;
-    height:60px;
     font-family: "Open Sans Extrabold", Helvetica Black, arial black;
     font-weight: extrabold;
-    color: black;
-    width: 100%;
-    margin-bottom:10px;
-    border-radius:10px;
-        position: fixed;
-    bottom:60%;
-	left: 0%
+    color: white;
+    margin-top:50%;
+    margin-bottom:-2%;
 	}
     
     p{
+    grid-column: col1 / col12;
+	grid-row: row7;
     text-align: center;
     width: 100%;
     font-family: "Open Sans", Helvetica, arial;
-    color: black;
-     position: fixed;
-    bottom: 57.5%;
-	left: 0%
+    color: white;
     }
     
     .button {
-    height: 30px;
-  width: 65%;
+    grid-column: col4 / col8;
+	grid-row: row8;
+    -webkit-align-self: center;
+    align-self:center;
   border-radius:10px;
-  padding-top:11px;
-  font-family: Open Sans Light, Helvetica, Arial;
-  background: black;
-  color: white;
-  font-size: 12px;
+  padding:10px;
+  font-family: 'Open Sans', Helvetica, Arial;
+  background: linear-gradient(#02AAB0, #02AAB0);
+  color: black;
+  font-size: 3vw;
   cursor: pointer;
   text-align:center;
   text-decoration: none;
-  position: fixed;
-    bottom: 50%;
-	left: 17.5%
 }
     
    </style>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<h1 style="font-size:9vw;"> PROJECT 233 </h1>
+<video autoplay muted loop id="myVideo">
+  <source src="https://docs.google.com/uc?id=1yH_PbAbj5OY47PMZz07nfiVdQfe5KJbt" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<h1 style="font-size:10vw;"> PROJECT 233 </h1>
 <p  style="font-size:3vw;">smarter working. by <span style="font-weight:800"> M MOSER ASSOCIATES</span></p>
 
-<a class="button" href="project233.com/contact">INFORMATION<class="button"></a>
+<a class="button" href="/contact">INFORMATION<class="button"></a>
 
 </body>
 </html>
-
-
-
