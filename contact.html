@@ -93,17 +93,9 @@
     outline:0;}
   
   body{
-	display:grid;
-    grid-template-columns:[col1]8%[col2]8%[col3]8%[col4]8%[col5]8%[col6]8%[col7]8%[col8]8%[col9]8%[col10]8%[end];
-    grid-template-rows:[row1]8%[row2]8%[row3]8%[row4]8%[row5]8%[row6]8%[row7]8%[row8]8%[row9]8%[row10]8%[row11]8%[end];
-  	grid-gap: 2%;
     background-color:#e5e5e5;
 	  }
       
-      .container{
-      grid-column: col1 / col11;
-		grid-row: row1/row8;
-    }
   
   img {
     position: fixed;
@@ -123,7 +115,7 @@
     color: white;
     margin-top:325px;
     margin-bottom:-2%;
-    font-size: 48px;
+    font-size: 10vw;
 	}
     
     p{
@@ -229,22 +221,29 @@
     display: none;
   }
   
+  .flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+  position:fixed;
+  top:525px;
+  align-content: center;
+  justify-content:center;
+}
+  
    .location {
-  height: 45px;
-  width: 60px;
+ width: 15vw;
+  height: 11.5vw;
+  padding-top:3.5vw;
+    font-size: 8vw;
   background-color: #e5e5e5;
   border-radius:100%;
   border: none;
   color: black;
-  font-size: 30px;
   cursor: pointer;
   text-align:center;
-  padding-top: 15px;
   box-shadow: 0px 8px 8px #bababa;
-
-  position: fixed;
-    bottom: 20%;
-	left: 75%
+  margin:1vw;
 
 }
 
@@ -258,23 +257,19 @@
 
 
  .website {
-  height: 45px;
-  width: 60px;
+ width: 15vw;
+  height: 11.5vw;
+  padding-top:3.5vw;
+    font-size: 8vw;
   background-color: #e5e5e5;
   border-radius:100%;
   border: none;
   color: black;
-  font-size: 30px;
   cursor: pointer;
   text-align:center;
-  padding-top: 15px;
   margin-top:10px;
   box-shadow: 0px 8px 8px #bababa;
-  
-  position: fixed;
-    bottom: 20%;
-	left: 55%
-
+margin:1vw;
 }
 
     .website:focus {
@@ -286,22 +281,18 @@
 }
 
  .call {
-  height: 45px;
-  width: 60px;
+ width: 15vw;
+  height: 11.5vw;
+  padding-top:3.5vw;
+    font-size: 8vw;
   background-color: #e5e5e5;
   border-radius:100%;
   border: none;
   color: black;
-  font-size: 30px;
   cursor: pointer;
   text-align:center;
-  padding-top: 15px;
   box-shadow: 0px 8px 8px #bababa;
- 
-  position: fixed;
-    bottom: 20%;
-	left: 35%
-
+margin:1vw;
 }
 
     .call:focus {
@@ -314,21 +305,18 @@
 
 
  .message {
-  height: 45px;
-  width: 60px;
+ width: 15vw;
+  height: 11.5vw;
+  padding-top:3.5vw;
+    font-size: 8vw;
   background-color: #e5e5e5;
   border-radius:100%;
   border: none;
   color: black;
-  font-size: 30px;
   cursor: pointer;
   text-align:center;
-  padding-top: 15px;
   box-shadow: 0px 8px 8px #bababa;
- 
-  position: fixed;
-    bottom: 20%;
-	left: 15%
+  margin:1vw;
 }
 
     .message:focus {
@@ -341,22 +329,18 @@
 
 
  .instagram {
-  height: 45px;
-  width: 60px;
+ width: 15vw;
+  height: 11.5vw;
+  padding-top:3.5vw;
+    font-size: 8vw;
+ border-radius: 100%;
   background-color: #e5e5e5;
   border-radius:100%;
-  border: none;
   color: black;
-  font-size: 30px;
   cursor: pointer;
   text-align:center;
-  padding-top: 15px;
   box-shadow: 0px 8px 8px #bababa;
- 
-  position: fixed;
-    bottom: 8%;
-	left: 75%
-
+margin:1vw;
 }
 
     .instagram:focus {
@@ -369,21 +353,18 @@
 
 
  .linkedin {
-  height: 45px;
-  width: 60px;
+ width: 15vw;
+  height: 11.5vw;
+  padding-top:3.5vw;
+    font-size: 8vw;
   background-color: #e5e5e5;
   border-radius:100%;
   border: none;
   color: black;
-  font-size: 30px;
   cursor: pointer;
   text-align:center;
-  padding-top: 15px;
   box-shadow: 0px 8px 8px #bababa;
- 
-  position: fixed;
-    bottom: 8%;
-	left: 55%
+  margin:1vw;
 }
 
     .linkedin:focus {
@@ -395,22 +376,18 @@
 }
 
  .tweet {
-  height: 45px;
-  width: 60px;
+ width: 15vw;
+  height: 11.5vw;
+  padding-top:3.5vw;
+    font-size: 8vw;
   background-color: #e5e5e5;
   border-radius:100%;
   border: none;
   color: black;
-  font-size: 30px;
   cursor: pointer;
   text-align:center;
-  padding-top: 15px;
   box-shadow: 0px 8px 8px #bababa;
- 
-  position: fixed;
-    bottom: 8%;
-	left: 35%
-
+margin:1vw;
 }
 
     .tweet:focus {
@@ -423,22 +400,18 @@
 
 
  .mail {
-  height: 45px;
-  width: 60px;
+ width: 15vw;
+  height: 11.5vw;
+  padding-top:3.5vw;
+    font-size: 8vw;
   background-color: #e5e5e5;
   border-radius:100%;
   border: none;
   color: black;
-  font-size: 30px;
   cursor: pointer;
   text-align:center;
-  padding-top: 15px;
   box-shadow: 0px 8px 8px #bababa;
- 
-  position: fixed;
-    bottom: 8%;
-	left: 15%
-
+margin:1vw;
 }
 
     .mail:focus {
@@ -475,9 +448,10 @@
 <div class="container">
 <img src="https://deathtothestockphoto.com/wp-content/uploads/2017/12/Deat_to_Stock_Goods_12.jpg" alt="background">
 <a class="button" href="/contact">+</a>
-<h1> BOOK A SEAT<br> WITH US </h1>
+<h1> BOOK A SEAT WITH US </h1>
 </div>
 
+<div class="flex-container">
 <a class="location" href="https://www.google.com/maps/dir/Current+Location/233+Broadway,+New+York,+NY+10279"><i class="fas fa-map-marker"></i></a>
 <a class="website" href="https://www.mmoser.com"><i class="fas fa-link"></i></a>
 <a class="call" href="https://ctrlq.org/call/9082683694"><i class="fas fa-phone"></i></a>
@@ -490,7 +464,7 @@
 <a class="mail" href="mailto:someone@yoursite.com"><i class="fas fa-envelope"></i></a>
 
 <a class="helpdesk" href="https://sites.google.com/view/project233/contact/helpdesk">REPORT AN ISSUE</a>
-
+</div>
 
 <div id="myNav" class="overlay">
   <div class="overlay-content">
