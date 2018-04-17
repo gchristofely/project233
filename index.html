@@ -5,7 +5,7 @@
 	<link href="dist/hamburgers.css" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Raleway">
+          href="https://fonts.googleapis.com/css?family=Raleway:black,regular,thin|Open+Sans:regular">
   <title>Project233</title>
  <link rel="icon" href="https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW" type="image/gif" sizes="16x16">
   <style>
@@ -103,29 +103,43 @@
     right: 0;
     bottom: 0;
     min-width: 100%; 
-    min-height: 100%;
+    height: 100%;
     z-index: -1;
     }
 
   	h1 {
-    grid-column: col1 / col12;
+    grid-column: col1 / col9;
 	grid-row: row1/row6;
-	text-align:center;
+	text-align:left;
     letter-spacing: 3px;
     font-family: 'Raleway';
-    font-weight:100;
-    color: black;
-    margin-top:30%;
+    font-weight:black;
+    color: white;
+    margin-top:50px;
     margin-bottom:-2%;
 	}
     
     p{
-    grid-column: col1 / col12;
+    grid-column: col1 / col9;
 	grid-row: row7;
-    text-align: center;
+    text-align: left;
     width: 100%;
     font-family: "Raleway", Helvetica, arial;
-    color: black;
+    font-weight:regular;
+    color: white;
+    }
+    
+    .home{
+   	position: fixed;
+    top:-70px;
+    right:-170px;
+    text-align: right;
+    width: 100%;
+    font-family: "Open Sans", Helvetica, arial;
+    font-weight:regular;
+    color: white;
+    padding-left:15px;
+    transform: rotate(90deg);
     }
     
     .button {
@@ -158,17 +172,19 @@
 
 .overlay-content {
     position: relative;
-    top: 25%;
+    top: 15%;
     width: 100%;
-    text-align: center;
+    text-align: left;
     margin-top: 30px;
+    margin-left:10px;
+    font-family: "Raleway", Helvetica, arial;
 }
 
 .overlay a {
     padding: 8px;
     text-decoration: none;
-    font-size: 36px;
-    color: #818181;
+    font-size: 8vw;
+    color: black;
     display: block;
     transition: 0.3s;
 }
@@ -193,19 +209,27 @@
     right: 35px;
   }
 }
+
+::-webkit-scrollbar {
+    display: none;
+  }
+
     
    </style>
 </head>
 <body>
 
-<img src="https://cdn.stocksnap.io/img-thumbs/960w/UB2UXMASSW.jpg" alt="background">
+<img src="https://deathtothestockphoto.com/wp-content/uploads/2017/12/Deat_to_Stock_Goods_8.jpg" alt="background">
 	
 <div id="myNav" class="overlay">
   <div class="overlay-content">
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
+    <a href="#">Community Guidelines</a>
     <a href="#">Contact</a>
+    <a href="#">Nearby</a>
+    <a href="#">Calendar of Events</a>
+    <a href="#">How To</a>
+    <a href="#">Useful</a>
+    <a href="#">Pets</a>
   </div>
 </div>
 
@@ -215,10 +239,12 @@
   </span>
 </button>
 
-<h1 style="font-size:10vw;"> PROJECT 233 </h1>
+<h1 style="font-size:16vw;"> HELLO. </h1>
 <p  style="font-size:3vw;">smarter working. by <span style="font-weight:900"> M MOSER ASSOCIATES</span></p>
 
 <a class="button" href="/contact">INFORMATION<class="button"></a>
+
+<div class="home" style="font-size:3vw;">HOME | PROJECT233</div>
 
 <script>
   var hamburger = document.querySelector(".hamburger");
