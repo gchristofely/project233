@@ -98,11 +98,12 @@
       
   
   img {
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 0;
     min-width: 100%; 
-    height: 70%;
+    height: 70vh;
+    object-fit:cover;
     z-index: -1;
     box-shadow: 0px 8px 8px #bababa;
     }
@@ -113,8 +114,8 @@
     font-family: 'Raleway';
     font-weight:black;
     color: white;
-    margin-top:325px;
-    margin-bottom:-2%;
+    position:absolute;
+    bottom:30vh;
     font-size: 10vw;
 	}
     
@@ -141,21 +142,27 @@
     }
     
     .button {
-  height: 60px;
-  width: 60px;
+ width: 15vw;
+  height: 11.5vw;
+  padding-top:3.5vw;
+    font-size: 8vw;
   background-color: transparent;
   border-radius:100%;
   border: 3px solid white;
   color: white;
-  font-size: 55px;
   cursor: pointer;
   text-align:center;
-  position: fixed;
-    top: 25%;
-    left: 45%;
   text-decoration:none;
   font-family: 'Raleway';
   font-weight:black;
+    display: flex;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+  position:absolute;
+  bottom:60vh;
+  left:40vw;
+  align-content: center;
+  justify-content:center;
 
 }
 
@@ -216,17 +223,13 @@
     right: 35px;
   }
 }
-
-::-webkit-scrollbar {
-    display: none;
-  }
   
   .flex-container {
   display: flex;
   flex-flow: row wrap;
   flex-wrap: wrap;
-  position:fixed;
-  top:525px;
+  position:absolute;
+  top:72vh;
   align-content: center;
   justify-content:center;
 }
@@ -439,7 +442,33 @@ margin:1vw;
     left:0;
 }
 
-
+@media screen and (min-width: 600px) {
+    h1 {
+        text-align:center;
+    letter-spacing: 3px;
+    font-family: 'Raleway';
+    font-weight:black;
+    color: white;
+    position:absolute;
+    bottom:30vh;
+    font-size: 5vw;
+    }
+    
+    .mail,.tweet,.linkedin,.instagram,.message,.call,.website,.location{
+     max-width: 10vw;
+  max-height: 7vw;
+  padding-top:3vw;
+    font-size: 5vw;
+  background-color: #e5e5e5;
+  border-radius:100%;
+  border: none;
+  color: black;
+  cursor: pointer;
+  text-align:center;
+  box-shadow: 0px 8px 8px #bababa;
+	margin:1vw;
+    }
+}
     
    </style>
 </head>
