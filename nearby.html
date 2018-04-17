@@ -1,35 +1,21 @@
 <!DOCTYPE html>
-
-
-<html>
-
-
+<html lang="en">
 <head>
-
-
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
-
-<meta name="robots" content="noindex, nofollow">
-
-
-<meta name="googlebot" content="noindex, nofollow">
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
-
-<script type="text/javascript" src="/js/lib/dummy.js"></script>
-
-<link rel="stylesheet" type="text/css" href="/css/result-light.css">
-
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=&v=3.0&sensor=true&language=ee"></script>
-
-<style type="text/css">
-
-
+	<link rel="manifest" href="/manifest.json">
+	<link href="dist/hamburgers.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway:black,regular,thin|Open+Sans:regular">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+  <title>Project233</title>
+ <link rel="icon" href="https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW" type="image/gif" sizes="16x16">
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIZX8jbE8D3xGJSeN2CgvCYZ1VFWRBEXc&callback=initMap"
+  type="text/javascript"></script>
+  
+  <style>
+  
 h2{
-color:white;
+color:black;
 font-family: open sans, helvetica, arial;
 text-decoration: underline;
 letter-spacing: 3px;
@@ -39,10 +25,19 @@ font-style: bold;
 
   h5{
   text-align: justify;
-  color:white;
+  color:black;
   font-family: 'Open Sans', Helvetica, Arial;
   font-weight: bold;
   line-height: 1.3;
+  position:absolute;
+  bottom:0vh;
+  left:3vw;
+  right:5vw;
+  z-index:1;
+  background-color:#e5e5e5;
+  padding:10px;
+  width:90vw;
+  text-size:3vw;
   }
   
   
@@ -55,20 +50,21 @@ font-style: bold;
 
 
 #map-canvas {
-width: 100%;
-height: 400px;
-
-
-border-radius: 25px;
-
-
+width: calc(100% + 20px);
+width:-webkit-calc(100% + 20px);
+height: 100Vh;
+position:fixed;
+top:-10px;
+left:-10px;
+right:-10px;
+x-overflow:hidden;
 }
 
 .button{
     position: relative;
     	right:3%;
-    background-color: transparent;
-    border: 2px solid white;
+    background-color: black;
+    border: none;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -96,13 +92,187 @@ border-radius: 25px;
   margin-top:5px;
   width:100%;
   justify-content: center;
+  z-index:1;
+  position:absolute;
+  bottom:20vh;
+  
+}
+  
+   .hamburger {
+  padding: 15px 15px;
+  position: fixed;
+   top:0;
+    left:0;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  overflow: visible;
+  outline:0;
+  z-index:99;}
+  .hamburger:hover {
+    opacity: 0.7; }
+
+.hamburger-box {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+   position: fixed;
+   top:15px;
+    left:10px;
+  outline:0;
+  z-index:99;}
+
+.hamburger-inner {
+  display: block;
+  top: 0%;
+  margin-top: -2px;
+  outline:0;}
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 24px;
+    height: 2px;
+    background-color: black;
+    border-radius: 0px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+    outline:0;}
+  .hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block;
+    outline:0;}
+  .hamburger-inner::before {
+    top: -10px;
+    outline:0;}
+  .hamburger-inner::after {
+    bottom: -10px;
+    outline:0;}
+  
+  .hamburger--slider .hamburger-inner {
+  top: 2px;
+  outline:0;}
+  .hamburger--slider .hamburger-inner::before {
+    top: 10px;
+    transition-property: transform, opacity;
+    transition-timing-function: ease;
+    transition-duration: 0.15s;
+    outline:0;}
+  .hamburger--slider .hamburger-inner::after {
+    top: 20px;
+    outline:0;}
+
+.hamburger--slider.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+  outline:0;}
+  .hamburger--slider.is-active .hamburger-inner::before {
+    transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+    opacity: 0;
+    outline:0;}
+  .hamburger--slider.is-active .hamburger-inner::after {
+    transform: translate3d(0, -20px, 0) rotate(-90deg);
+    outline:0;}
+    
+    .overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background-color: white;
+    background-color: white;
+    overflow-y: hidden;
+    transition: 0.5s;
 }
 
+.overlay-content {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    text-align: left;
+    margin-top: 30px;
+    margin-left:10px;
+    font-family: "Raleway", Helvetica, arial;
+}
 
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 8vw;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+    .home{
+    text-align: right;
+    font-family: "Open Sans", Helvetica, arial;
+    font-weight:regular;
+    color: white;
+    transform: rotate(90deg);
+    position: absolute;
+    right:-25px;
+    top:70px;
+    font-size: 12px;
+    z-index:1;
+    background-color:#d63a0e;
+    padding:5px;
+    }
+    
+    ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  @media screen and (min-height: 600px) {
+  h5{
+  text-align: justify;
+  color:black;
+  font-family: 'Open Sans', Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  position:absolute;
+  bottom:0vh;
+  left:3vw;
+  right:5vw;
+  z-index:1;
+  background-color:#e5e5e5;
+  padding:10px;
+  width:90vw;
+  text-size:12px;
+  }
+}
+
+    
 
 </style>
-
-<title>Filter Google Maps markers by category</title>
 
 <script type="text/javascript">
 
@@ -184,7 +354,9 @@ zoom: 12,
 center: center,
 
 
-mapTypeId: google.maps.MapTypeId.TERRAIN
+mapTypeId: google.maps.MapTypeId.TERRAIN,
+
+disableDefaultUI: true
 
 
 };
@@ -375,14 +547,32 @@ initialize();
 }
 
 </script>
-
 </head>
 <body>
 
-<h2>PLACES</h2>
-<h2>TO GO</h2>
+<div id="myNav" class="overlay">
+  <div class="overlay-content">
+    <a href="#">Community Guidelines</a>
+    <a href="#">Contact</a>
+    <a href="#">Nearby</a>
+    <a href="#">Calendar of Events</a>
+    <a href="#">How To</a>
+    <a href="#">Useful</a>
+    <a href="#">Pets</a>
+  </div>
+</div>
 
-<h5 style="font-size:3vw;">
+<button class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+
+<div class="home">CONTACT | PROJECT233</div>
+
+<div id="map-canvas"></div>
+
+<h5>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo lacinia nunc finibus sollicitudin. Proin ut urna erat. Quisque fringilla porttitor feugiat. Phasellus in arcu in diam blandit accumsan. Curabitur felis odio, facilisis in lacinia nec, dapibus ut nulla. Proin aliquam rutrum dolor id condimentum. 
 </h5>
 
@@ -400,7 +590,29 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo lacinia n
 <button class="button" value="train" onclick="filterMarkers(this.value)"><i class="fas fa-subway"></i></button>
 </div>
 
-<div id="map-canvas"></div>
+
+<script>
+  var hamburger = document.querySelector(".hamburger");
+  hamburger.addEventListener("click", function openNav() {
+  		document.getElementById("myNav").style.height = "100%";
+		this.classList.toggle("is-active");
+    	if (this.classList.contains('is-active')){
+      	openNav();
+    } else {
+      closeNav();
+    }
+  });
+</script>
+
+<script>
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+</script>
 
 <script>
 
@@ -428,25 +640,6 @@ slug: "drytwvL8"
 
 </script>
 
-
-
-
-
-
+	
 </body>
-
-
-
-
-
-
 </html>
-
-
-
-
-
-
-
-
-
