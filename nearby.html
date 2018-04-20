@@ -14,76 +14,93 @@
   
   <style>
   
-h2{
-color:black;
+body, html {
+  height: 100vh;
+  margin:0px;
+  padding:0px;
+  }
+  
+  .scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  height:90vh;
+}
+  .card {
+    display: inline-block;
+    background-color: TRANSPARENT;
+    width: 100vw;
+    margin-left:5vw;
+    margin-right:5vw;
+    margin-top:5vh;
+    height:100vh;
+}
+
+.img{
+	object-fit:cover;
+    box-shadow: 4px 4px 40px black;
+    border-radius:10px;
+    height:50vh;
+    }
+  
+    h2{
+  text-align: center;
+  font-size:4vh;
+  width:100vw;
+  font-family: "Raleway Black", Helvetica, Arial;
+  font-weight: bold;
+  letter-spacing: 2px;
+    position: relative;
+    text-align: center;
+
+  }
+
+.button{
+	display: block;
+    color: black;
+    font-size:10vh;
+    position: relative;
+    top:-5vh;
+    width:100vw;
+    text-align: center;
+}
+
+h1{
+color:white;
 font-family: open sans, helvetica, arial;
 text-decoration: underline;
+letter-spacing: 3px;
+line-height: 1.3;
+font-style: bold;
+
+}
+
+h5{
+  text-align: justify;
+  color:white;
+  font-family: Open Sans, Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  }
+
+h3{
+  text-align: justify;
+  color:white;
+  font-family: Open Sans, Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  }
+  
+h2{
+color:black;
+text-align: center;
+font-family: 'Raleway black', helvetica, arial;
 letter-spacing: 3px;
 line-height: 0.7;
 font-style: bold;
 }
 
-  h5{
-  text-align: justify;
-  color:black;
-  font-family: 'Open Sans', Helvetica, Arial;
-  font-weight: bold;
-  line-height: 1.3;
-  position:absolute;
-  bottom:0vh;
-  left:3vw;
-  right:5vw;
-  z-index:1;
-  background-color:#e5e5e5;
-  padding:10px;
-  width:90vw;
-  text-size:3vw;
-  }
-  
-  
-   .square {
-  height: 5px;
-  width: 40%;
-  background-color: white;
-  margin-left:27.5%
-}
-
-
-#map-canvas {
-width: calc(100% + 20px);
-width:-webkit-calc(100% + 20px);
-height: 101vh;
-position:fixed;
-top:-10px;
-left:-10px;
-right:-10px;
-bottom:-10px;
-x-overflow:hidden;
-}
-
-.button{
-    position: relative;
-    	right:3%;
-    background-color: black;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 100%;
-    width:60px;
-    height:60px;
-    margin:3%;
-    padding:10px;
-    outline: none;
-    }
-    
-    .button:focus {
-    background-color: white;
-}
-
-   .button:active {
-    background-color: white;
-}
 
 .flex-container {
   display: flex;
@@ -221,7 +238,7 @@ x-overflow:hidden;
     top: 20px;
     right: 45px;
     font-size: 60px;
-}
+}https://cdn.stocksnap.io/img-thumbs/960w/YQGFOD32RF.jpg
 
 @media screen and (max-height: 450px) {
   .overlay {overflow-y: auto;}
@@ -238,14 +255,14 @@ x-overflow:hidden;
     font-family: "Open Sans", Helvetica, arial;
     font-weight:regular;
     color: white;
-    transform: rotate(90deg);
-    position: absolute;
+    position: fixed;
     right:-25px;
     top:70px;
     font-size: 12px;
     z-index:1;
     background-color:#d63a0e;
     padding:5px;
+    transform: rotate(90deg);
     }
     
     ::-webkit-scrollbar {
@@ -271,283 +288,37 @@ x-overflow:hidden;
   }
 }
 
-    
+.tablink {
+    text-align: center;
+    color: white;
+    position: relative;
+    right:-20vw;
+    top:2vh;
+    z-index:2;
+    letter-spacing: 3px;
+    background-color: #f2f2f2;
+    color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 7px 5vw;
+    font-size: 12px;
+    border-radius:10px;
+}
+
+.tablink:hover {
+    background-color: white;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    height: 100vh;
+}
 
 </style>
 
-<script type="text/javascript">
-
-
-window.onload=function(){
-
-
-
-
-
-
-var gmarkers1 = [];
-
-
-var markers1 = [];
-
-
-var infowindow = new google.maps.InfoWindow({
-
-
-content: ''
-
-
-});
-
-
-
-
-
-
-// Our markers
-
-
-markers1 = [
-
-
-['0', 'city hall', 40.782524, -74.078358, 'parks'],
-['1', 'duane reade', 40.762524, -74.048358, 'pharmacy'],
-['2', 'wtc', 40.783524, -74.072358, 'shopping'],
-['3', 'chipotle', 40.752524, -74.074358, 'food'],
-['4', 'chipotle', 40.762524, -74.074358, 'banks'],
-['5', 'chipotle', 40.772524, -74.074358, 'gyms'],
-['6', 'chipotle', 40.782524, -74.074358, 'bars'],
-['7', 'chipotle', 40.792524, -74.074358, 'cafe'],
-['8', 'chipotle', 40.82524, -74.074358, 'train'],
-
-];
-
-
-
-
-
-
-/**
-
-
-* Function to init map
-
-
-*/
-
-
-
-
-
-
-function initialize() {
-
-
-var center = new google.maps.LatLng(40.712524, -74.008358);
-
-
-var mapOptions = {
-
-
-zoom: 12,
-
-
-center: center,
-
-
-mapTypeId: google.maps.MapTypeId.TERRAIN,
-
-disableDefaultUI: true
-
-
-};
-
-
-
-
-
-
-map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-
-for (i = 0; i < markers1.length; i++) {
-
-
-addMarker(markers1[i]);
-
-
-}
-
-
-}
-
-
-
-
-
-
-/**
-
-
-* Function to add marker to map
-
-
-*/
-
-
-
-
-
-
-function addMarker(marker) {
-
-
-var category = marker[4];
-
-
-var title = marker[1];
-
-
-var pos = new google.maps.LatLng(marker[2], marker[3]);
-
-
-var content = marker[1];
-
-
-
-
-
-
-marker1 = new google.maps.Marker({
-
-
-title: title,
-
-
-position: pos,
-
-
-category: category,
-
-
-map: map
-
-
-});
-
-
-
-
-
-
-gmarkers1.push(marker1);
-
-
-
-
-
-
-// Marker click listener
-
-
-google.maps.event.addListener(marker1, 'click', (function(marker1, content) {
-
-
-return function() {
-
-
-console.log('Gmarker 1 gets pushed');
-
-
-infowindow.setContent(content);
-
-
-infowindow.open(map, marker1);
-
-
-map.panTo(this.getPosition());
-
-
-map.setZoom(15);
-
-
-}
-
-
-})(marker1, content));
-
-
-}
-
-
-
-
-
-
-/**
-
-
-* Function to filter markers by category
-
-
-*/
-
-
-
-
-
-
-filterMarkers = function(category) {
-
-
-for (i = 0; i < markers1.length; i++) {
-
-
-marker = gmarkers1[i];
-
-
-// If is same category or category not picked
-
-
-if (marker.category == category || category.length === 0) {
-
-
-marker.setVisible(true);
-
-
-}
-
-
-// Categories don't match
-
-
-else {
-
-
-marker.setVisible(false);
-
-
-}
-
-
-}
-
-
-}
-
-
-
-
-
-
-// Init map
-
-
-initialize();
-
-}
-
-</script>
 </head>
 <body>
 
@@ -569,20 +340,28 @@ initialize();
   </span>
 </button>
 
-<div class="home">NEARBY | PROJECT233</div>
+<div class="home">USEFUL | PROJECT233</div>
 
-<div id="map-canvas"></div>
-	
-<div class="flex-container">
-<button class="button" value="food" onclick="filterMarkers(this.value)"><i class="fas fa-utensils"></i></button>
-<button class="button" value="pharmacy" onclick="filterMarkers(this.value)"><i class="fas fa-pills"></i></button>
-<button class="button" value="parks" onclick="filterMarkers(this.value)"><i class="fas fa-tree"></i></button>
-<button class="button" value="shopping" onclick="filterMarkers(this.value)"><i class="fas fa-shopping-cart"></i></button>
-<button class="button" value="banks" onclick="filterMarkers(this.value)"><i class="fas fa-dollar-sign"></i></button>
-<button class="button" value="gyms" onclick="filterMarkers(this.value)"><i class="fas fa-football-ball"></i></button>
-<button class="button" value="bars" onclick="filterMarkers(this.value)"><i class="fas fa-wine-glass"></i></button>
-<button class="button" value="cafe" onclick="filterMarkers(this.value)"><i class="fas fa-coffee"></i></button>
-<button class="button" value="train" onclick="filterMarkers(this.value)"><i class="fas fa-subway"></i></button>
+<button class="tablink" onclick="openPage('Space', this, '#e5e5e5')">SPACE</button>
+<button class="tablink" onclick="openPage('tech', this, '#e5e5e5')" id="defaultOpen">TECH</button>
+
+<div id="Space" class="tabcontent">
+
+<div class="scrolling-wrapper">
+
+  <div class="card">
+  	<img class="img" src="https://cdn.stocksnap.io/img-thumbs/960w/YQGFOD32RF.jpg" alt="header image" width=100% height=75%>
+    <a class="button" href="https://www.google.com/maps/dir/Current+Location/233+Broadway,+New+York,+NY+10279"><i class="fas fa-plus-circle"></i></a>
+    <h2> FOCUS ROOM </h2>
+    </div>
+    
+      <div class="card">
+  	<img class="img" src="https://cdn.stocksnap.io/img-thumbs/960w/YQGFOD32RF.jpg" alt="header image" width=100% height=75%>
+    <a class="button" href="https://www.google.com/maps/dir/Current+Location/233+Broadway,+New+York,+NY+10279"><i class="fas fa-plus-circle"></i></a>
+    <h2> FOCUS ROOM </h2>
+    </div>
+    
+  </div>
 </div>
 
 
@@ -607,34 +386,26 @@ function openNav() {
 function closeNav() {
     document.getElementById("myNav").style.height = "0%";
 }
-</script>
+</script>	
 
 <script>
-
-
-// tell the embed parent frame the height of the content
-
-
-if (window.parent && window.parent.parent){
-
-
-window.parent.parent.postMessage(["resultsFrame", {
-
-
-height: document.body.getBoundingClientRect().height,
-
-
-slug: "drytwvL8"
-
-
-}], "*")
-
+function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
 
 }
-
-
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
 </script>
 
-	
 </body>
 </html>
