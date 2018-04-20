@@ -14,26 +14,30 @@
   
   <style>
   
+  body{
+  margin:0;
+  padding:0;
+  }
+  
   .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
-  height:250px;
-  margin-bottom: 20px;
+  height:90vh;
+  position: absolute;
+  bottom:0;
 }
   .card {
     display: inline-block;
-    background-color: #f1f2f2;
+    background-color: TRANSPARENT;
     width: 70%;
-    height:250px;
+    height:90vh;
     border-radius:20px;
 }
 
 .img{
 	object-fit:cover;
-     border-top-left-radius: 20px;
-     border-top-right-radius: 20px;
     }
   
     h2{
@@ -271,12 +275,13 @@ font-style: bold;
     font-weight:regular;
     color: white;
     position: fixed;
-    right:15px;
-    top:15px;
+    right:-25px;
+    top:70px;
     font-size: 12px;
     z-index:1;
     background-color:#d63a0e;
     padding:5px;
+    transform: rotate(90deg);
     }
     
     ::-webkit-scrollbar {
@@ -326,6 +331,10 @@ font-style: bold;
 </button>
 
 <div class="home">USEFUL | PROJECT233</div>
+
+<h2>
+SPACE
+</h2>
 
 <div class="scrolling-wrapper">
 
