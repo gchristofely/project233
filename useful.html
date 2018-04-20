@@ -14,9 +14,10 @@
   
   <style>
   
-  body{
-  margin:0;
-  padding:0;
+body, html {
+  height: 100vh;
+  margin:0px;
+  padding:0px;
   }
   
   .scrolling-wrapper {
@@ -25,48 +26,46 @@
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
   height:90vh;
-  position: absolute;
-  bottom:0;
+  position:absolute;
+  bottom:0px;
 }
   .card {
     display: inline-block;
     background-color: TRANSPARENT;
-    width: 70%;
-    height:90vh;
-    border-radius:20px;
+    width: 100vw;
+    margin-left:5vw;
+    margin-right:5vw;
+    margin-top:5vh;
+    height:100vh;
 }
 
 .img{
 	object-fit:cover;
+    box-shadow: 4px 4px 40px black;
+    border-radius:10px;
+    height:50vh;
     }
   
     h2{
-  text-align: left;
-  font-size:20px;
-  font-family: Open Sans, Helvetica, Arial;
+  text-align: center;
+  font-size:5vw;
+  width:100vw;
+  font-family: "Raleway Black", Helvetica, Arial;
   font-weight: bold;
   letter-spacing: 2px;
-  position: relative;
-  bottom:4%;
-  left:5%
+  position: absolute;
+  bottom:100px;
+  left:0vw;
   }
-  
-   .square {
-  height: 10px;
-  width: 40%;
-  background-color: black;
-  position: relative;
-    bottom: 2%;
-    left: 5%;
-}
 
 .button{
 	display: block;
     color: black;
-    font-size:20px;
-	position: relative;
-    bottom: 20%;
-    left: 85%;
+    font-size:20vw;
+  position: absolute;
+  bottom:200px;
+  left:40vw;
+  width:10vw;
 }
 
 h1{
@@ -97,29 +96,13 @@ h3{
   
 h2{
 color:black;
-font-family: open sans, helvetica, arial;
-text-decoration: underline;
+text-align: center;
+font-family: 'Raleway black', helvetica, arial;
 letter-spacing: 3px;
 line-height: 0.7;
 font-style: bold;
 }
 
-  h5{
-  text-align: justify;
-  color:black;
-  font-family: 'Open Sans', Helvetica, Arial;
-  font-weight: bold;
-  line-height: 1.3;
-  position:absolute;
-  bottom:0vh;
-  left:3vw;
-  right:5vw;
-  z-index:1;
-  background-color:#e5e5e5;
-  padding:10px;
-  width:90vw;
-  text-size:3vw;
-  }
 
 .flex-container {
   display: flex;
@@ -307,6 +290,35 @@ font-style: bold;
   }
 }
 
+.tablink {
+    text-align: center;
+    color: white;
+    position: relative;
+    right:-20vw;
+    top:2vh;
+    z-index:2;
+    letter-spacing: 3px;
+    background-color: #f2f2f2;
+    color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 7px 5vw;
+    font-size: 12px;
+    border-radius:10px;
+}
+
+.tablink:hover {
+    background-color: white;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    height: 100vh;
+}
+
 </style>
 
 </head>
@@ -332,34 +344,21 @@ font-style: bold;
 
 <div class="home">USEFUL | PROJECT233</div>
 
-<h2>
-SPACE
-</h2>
+<button class="tablink" onclick="openPage('Space', this, '#e5e5e5')">SPACE</button>
+<button class="tablink" onclick="openPage('tech', this, '#e5e5e5')" id="defaultOpen">TECH</button>
+
+<div id="Space" class="tabcontent">
 
 <div class="scrolling-wrapper">
 
   <div class="card">
   	<img class="img" src="https://cdn.stocksnap.io/img-thumbs/960w/YQGFOD32RF.jpg" alt="header image" width=100% height=75%>
- 	<div class="square"></div>
-  	<h2>TITLE</h2>
     <a class="button" href="https://www.google.com/maps/dir/Current+Location/233+Broadway,+New+York,+NY+10279"><i class="fas fa-plus-circle"></i></a>
+    <h2> FOCUS ROOM </h2>
+    </div>
   </div>
-  
-    <div class="card">
-  	<img class="img" src="https://cdn.stocksnap.io/img-thumbs/960w/DGWXFPOPPE.jpg" alt="header image" width=100% height=75%>
- 	<div class="square"></div>
-  	<h2>TITLE</h2>
-    <a class="button" href="https://www.google.com/maps/dir/Current+Location/233+Broadway,+New+York,+NY+10279"><i class="fas fa-plus-circle"></i></a>
-  </div>
-  
-      <div class="card">
-  	<img class="img" src="https://cdn.stocksnap.io/img-thumbs/960w/XBODKG1KPM.jpg" alt="header image" width=100% height=75%>
- 	<div class="square"></div>
-  	<h2>TITLE</h2>
-    <a class="button" href="https://www.google.com/maps/dir/Current+Location/233+Broadway,+New+York,+NY+10279"><i class="fas fa-plus-circle"></i></a>
-  </div>
-  
 </div>
+
 
 <script>
   var hamburger = document.querySelector(".hamburger");
@@ -383,5 +382,25 @@ function closeNav() {
     document.getElementById("myNav").style.height = "0%";
 }
 </script>	
+
+<script>
+function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
 </body>
 </html>
