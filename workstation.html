@@ -1,1 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="manifest" href="/manifest.json">
+	<link href="dist/hamburgers.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway:black,regular,thin|Open+Sans:regular">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+  <title>Project233</title>
+ <link rel="icon" href="https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW" type="image/gif" sizes="16x16">
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIZX8jbE8D3xGJSeN2CgvCYZ1VFWRBEXc&callback=initMap"
+  type="text/javascript"></script>
+  
+  <style>
+  
+body, html {
+  height: 100vh;
+  margin:0px;
+  padding:0px;
+  }
+  
+  body{
+    background-color: #f2f2f2;
+    background-repeat: no-repeat;
+    background-size: 200vw 80vh;
+    position:fixed;
+  }
+  
 
+  .card {
+    background-color: #f2f2f2;
+    width: 100vw;
+    height:100vh;
+    position:relative;
+    bottom:0px;
+}
+
+.img{
+	object-fit:cover;
+    height:35vh;
+    width: 100vw;
+    position:relative;
+    top:0vh;
+    box-shadow:4px 4px 8px #c9c9c9;
+    }
+  
+    h2{
+  text-align: center;
+  color: white;
+  font-size:4vh;
+  width:100vw;
+  font-family: "Raleway Black", Helvetica, Arial;
+  font-weight: bold;
+  letter-spacing: 2px;
+    position: fixed;
+    top: 20vh;
+    text-align: center;
+    
+  }
+  
+  .square{
+  width:100vw;
+  height:65vh;
+  position:fixed;
+  bottom:0vh;
+  }
+
+.button{
+	display: block;
+    color: white;
+    font-size:5vh;
+    position: fixed;
+    bottom:5vh;
+    width:100vw;
+    text-align: center;
+    z-index:1;
+}
+
+p{
+	color:white;
+	z-index:2;
+    position:relative;
+    top:5vh;
+    background-color:rgba(0, 0, 0, 0.3);
+    margin-left:2vw;
+    margin-right:2vw;
+    font-family: open sans, helvetica, arial;
+	white-space: normal; 
+    overflow: hidden;
+    font-size:2.5vh;
+    text-align: center;
+    border-radius: 5px;
+    padding:2vw;
+}
+
+a{
+color:white;
+text-decoration: none;
+}
+
+.big-text{
+font-family: open sans extrabold, helvetica, arial;
+text-align:center;
+position: relative;
+top: 7vh;
+font-size:25vh;
+letter-spacing: 3px;
+}
+
+h1{
+color:white;
+font-family: open sans bold, helvetica, arial;
+letter-spacing: 3px;
+line-height: 1.3;
+font-style: bold;
+margin-left:5vw;
+Position:relative;
+top:5vh;
+font-size:5vh;
+}
+
+h5{
+  text-align: justify;
+  color:white;
+  font-family: Open Sans, Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  }
+
+h3{
+  text-align: justify;
+  color:white;
+  font-family: Open Sans, Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  position:relative;
+  top:0;
+  }
+
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
+  width:100vw;
+  justify-content: center;
+  z-index:1;
+  position:absolute;
+}
+  
+   .hamburger {
+  padding: 15px 15px;
+  position: fixed;
+   top:0;
+    left:0;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  overflow: visible;
+  outline:0;
+  z-index:99;}
+  .hamburger:hover {
+    opacity: 0.7; }
+
+.hamburger-box {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+   position: fixed;
+   top:15px;
+    left:10px;
+  outline:0;
+  z-index:99;}
+
+.hamburger-inner {
+  display: block;
+  top: 0%;
+  margin-top: -2px;
+  outline:0;}
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 24px;
+    height: 2px;
+    background-color: black;
+    border-radius: 0px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+    outline:0;}
+  .hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block;
+    outline:0;}
+  .hamburger-inner::before {
+    top: -10px;
+    outline:0;}
+  .hamburger-inner::after {
+    bottom: -10px;
+    outline:0;}
+  
+  .hamburger--slider .hamburger-inner {
+  top: 2px;
+  outline:0;}
+  .hamburger--slider .hamburger-inner::before {
+    top: 10px;
+    transition-property: transform, opacity;
+    transition-timing-function: ease;
+    transition-duration: 0.15s;
+    outline:0;}
+  .hamburger--slider .hamburger-inner::after {
+    top: 20px;
+    outline:0;}
+
+.hamburger--slider.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+  outline:0;}
+  .hamburger--slider.is-active .hamburger-inner::before {
+    transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+    opacity: 0;
+    outline:0;}
+  .hamburger--slider.is-active .hamburger-inner::after {
+    transform: translate3d(0, -20px, 0) rotate(-90deg);
+    outline:0;}
+    
+    .overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background-color: white;
+    background-color: white;
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    text-align: left;
+    margin-top: 30px;
+    margin-left:10px;
+    font-family: "Raleway", Helvetica, arial;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 8vw;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+    .home{
+    text-align: right;
+    font-family: "Open Sans", Helvetica, arial;
+    font-weight:regular;
+    color: white;
+    position: fixed;
+    right:-25px;
+    top:70px;
+    font-size: 12px;
+    z-index:1;
+    background-color:#d63a0e;
+    padding:5px;
+    transform: rotate(90deg);
+    }
+    
+    ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  @media screen and (min-height: 600px) {
+  h5{
+  text-align: justify;
+  color:black;
+  font-family: 'Open Sans', Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  position:absolute;
+  bottom:0vh;
+  left:3vw;
+  right:5vw;
+  z-index:1;
+  background-color:#e5e5e5;
+  padding:10px;
+  width:90vw;
+  text-size:12px;
+  }
+}
+
+.tablink {
+    text-align: center;
+    color: white;
+    height: 6vh;
+    width:6vh;
+    position: relative;
+    top:.5vh;
+    left:2vw;
+    z-index:5;
+    letter-spacing: 3px;
+    background-color: #f2f2f2;
+    color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius:100%;
+    font-size:2.5vh;
+    margin:3vw;
+}
+
+.tablink:hover {
+    background-color: white;
+}
+
+.tab-box{
+background-color:rgba(0, 0, 0, 0.3);
+width:80vw;
+height:10vh;
+position:fixed;
+top:30vh;
+left:10vw;
+z-index:2;
+border-radius:10px;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    height: 100vh;
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="myNav" class="overlay">
+  <div class="overlay-content">
+  	<a href="http://www.project233.com">Home</a>
+    <a href="http://www.project233.com/guidelines">Community Guidelines</a>
+    <a href="http://www.project233.com/contact">Contact</a>
+    <a href="http://www.project233.com/nearby">Nearby</a>
+    <a href="http://www.project233.com/calendar">Calendar of Events</a>
+    <a href="http://www.project233.com/howto">How To</a>
+    <a href="http://www.project233.com/useful">Useful</a>
+    <a href="http://www.project233.com/pets">Pets</a>
+  </div>
+</div>
+
+<button class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+
+<div class="home">HOW TO | PROJECT233</div>
+
+
+  <div class="card">
+  	<img class="img" src="https://docs.google.com/uc?id=1cxPbxa1juNblCAwquzR0DSqSt5yzgcaj" alt="header image" width=100% height=75%>
+    <a class="button" href="http://www.project233.com/howto"><i class="fas fa-minus"></i></a>
+    <h2> WORKSTATIONS </h2>
+        </div>
+    
+    <div class="tab-box">
+<button class="tablink" onclick="openPage('Time', this, '#1bb554')"id="defaultOpen"><i class="fas fa-stopwatch"></i></button>
+<button class="tablink" onclick="openPage('Users', this, '#1bb554')" ><i class="fas fa-users"></i></button>
+<button class="tablink" onclick="openPage('Tech', this, '#1bb554')" ><i class="fas fa-plug"></i></button>
+<button class="tablink" onclick="openPage('Activities', this, '#1bb554')"><i class="fas fa-play"></i></button>
+</div>
+    
+    
+    <div id="Time" class="tabcontent">
+     <div class="square" style="background-color:#252839">
+    <div class="big-text">
+    1
+    </div>
+    <p> Day Use Limit </p>
+    </div>
+  </div>
+  
+      <div id="Users" class="tabcontent">
+     <div class="square" style="background-color:#252839">
+    <div class="big-text">
+    1
+    </div>
+    <p> Max Users </p>
+    </div>
+  </div>
+  
+        <div id="Tech" class="tabcontent">
+     <div class="square" style="background-color:#252839">
+    <p><a href="http://www.project233.com/samsung"> Monitor </a></p>
+    <p><a href="http://www.project233.com/power"> Mobile Power </a></p>
+    </div>
+  </div>
+  
+          <div id="Activities" class="tabcontent">
+     <div class="square" style="background-color:#252839">
+    <p>Focus Work</p>
+    <p>Paired Work</p>
+    <p>Graphics</p>
+    <p>Drawing</p>
+    </div>
+  </div>
+
+
+<script>
+  var hamburger = document.querySelector(".hamburger");
+  hamburger.addEventListener("click", function openNav() {
+  		document.getElementById("myNav").style.height = "100%";
+		this.classList.toggle("is-active");
+    	if (this.classList.contains('is-active')){
+      	openNav();
+    } else {
+      closeNav();
+    }
+  });
+</script>
+
+<script>
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+</script>	
+
+<script>
+function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>
