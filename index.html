@@ -1,26 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	window.addEventListener('load', function() {
 
-  var webAuth = new auth0.WebAuth({
-    domain: 'project233.auth0.com',
-    clientID: 'V-l6SsxA-Dncl55ZvYzFNRMQBRdW-Rhy',
-    responseType: 'token id_token',
-    audience: 'https://project233.auth0.com/userinfo',
-    scope: 'openid',
-    redirectUri: window.location.href
-  });
-
-  var loginBtn = document.getElementById('btn-login');
-
-  loginBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    webAuth.authorize();
-  });
-
-});
-	
 	<script src="https://cdn.auth0.com/js/auth0/9.3.1/auth0.min.js"></script>
 	<script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>
 	<link rel="manifest" href="/manifest.json">
@@ -294,7 +275,27 @@ function closeNav() {
     document.getElementById("myNav").style.height = "0%";
 }
 </script>
+<script>
+window.addEventListener('load', function() {
 
+  var webAuth = new auth0.WebAuth({
+    domain: 'project233.auth0.com',
+    clientID: 'V-l6SsxA-Dncl55ZvYzFNRMQBRdW-Rhy',
+    responseType: 'token id_token',
+    audience: 'https://project233.auth0.com/userinfo',
+    scope: 'openid',
+    redirectUri: window.location.href
+  });
+
+  var loginBtn = document.getElementById('btn-login');
+
+  loginBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    webAuth.authorize();
+  });
+
+});
+</script>	
 	
 </body>
 </html>
