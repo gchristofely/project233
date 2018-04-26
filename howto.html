@@ -50,13 +50,14 @@ body, html {
     margin-top:1vh;
     height:15vh;
     position:relative;
-    box-shadow:6px 6px 20px #d8d8d8;
+    top:5vh;
+    box-shadow:6px 6px 20px #cccccc;
 }
   
     h2{
   text-align: left;
   color: white;
-  font-size:4vh;
+  font-size:3.5vh;
   width:96vw;
   font-family: "Raleway Black", Helvetica, Arial;
   font-weight: 100;
@@ -69,9 +70,6 @@ body, html {
 
 .button{
     color: white;
-    width:12vh;
-    height:12vh;
-    background-color:#f2f2f2;
     font-size:5vh;
     position: relative;
     right:-80vw;
@@ -102,7 +100,7 @@ font-style: bold;
 margin-left:5vw;
 margin-bottom:3vh;
 Position:relative;
-top:5vh;
+top:10vh;
 font-size:5vh;
 }
 
@@ -278,7 +276,7 @@ h3{
     right:-25px;
     top:70px;
     font-size: 12px;
-    z-index:1;
+    z-index:21;
     background-color:#d63a0e;
     padding:5px;
     transform: rotate(90deg);
@@ -338,10 +336,22 @@ h3{
     height: 100vh;
 }
 
+.header{
+background-color:white;
+width:100vw;
+height:10vh;
+position:fixed;
+top:0vw;
+z-index:20;
+box-shadow:4px 4px 6px #f2f2f2;
+}
+
 </style>
 
 </head>
 <body>
+
+<div class="header">
 
 <div id="myNav" class="overlay">
   <div class="overlay-content">
@@ -362,11 +372,13 @@ h3{
   </span>
 </button>
 
-<div class="home">HOW TO | PROJECT233</div>
+
 
 <button class="tablink" onclick="openPage('Space', this, '#e5e5e5')">SPACE</button>
 <button class="tablink" onclick="openPage('Tech', this, '#e5e5e5')" id="defaultOpen">TECH</button>
 
+</div>
+<div class="home">HOW TO | PROJECT233</div>
 <div id="Space" class="tabcontent">
 
 <h1> SPACE </h1>
@@ -492,50 +504,46 @@ h3{
 <div id="Tech" class="tabcontent">
 <h1> TECH </h1>
 
-  <div class="card" style="background:linear-gradient(90deg,#DA4453,#89216B)">
+  <div class="card" style="background:linear-gradient(90deg,#314755,#314755)">
     <a class="button" href="http://www.project233.com/ueboom"><i class="fas fa-plus"></i></a>
     <h2> UE BOOM </h2>
     <p>BLUETOOTH SPEAKER</p>
     </div>
     
-      <div class="card" style="background:linear-gradient(90deg,#355C7D,#6C5B7B,#C06C84)">
+      <div class="card" style="background:linear-gradient(90deg,#C06C84,#355C7D)">
     <a class="button" href="http://www.project233.com/sideline"><i class="fas fa-plus"></i></a>
     <h2> SIDELINE </h2>
     <p>SECOND PHONE NUMBER</p>
     </div>
     
-          <div class="card" style="background:linear-gradient(90deg,#0f0c29,#302b63,#24243e)">
+          <div class="card" style="background:linear-gradient(90deg,#26a0da,#314755)">
     <a class="button" href="http://www.project233.com/dell"><i class="fas fa-plus"></i></a>
     <h2> TOUCH SCREEN </h2>
     <p>COLLABORATION TOOL</p>
      </div>
      
-               <div class="card" style="background:linear-gradient(90deg,#007991,#78ffd6)">
+               <div class="card" style="background:linear-gradient(90deg,#4AC29A,#BDFFF3)">
     <a class="button" href="https://www.google.com/maps/dir/Current+Location/233+Broadway,+New+York,+NY+10279"><i class="fas fa-plus"></i></a>
     <h2> BOARD ROOM </h2>
     <p>PRESENTATION TOOLS</p>
      </div>
      
-                    <div class="card">
-  	<img class="img" src="https://cdn.stocksnap.io/img-thumbs/960w/1FZQQSWLWF.jpg" alt="header image" width=100% height=75%>
+                    <div class="card" style="background:linear-gradient(90deg,#43C6AC,#F8FFAE)">
     <a class="button" href="https://www.google.com/maps/dir/Current+Location/233+Broadway,+New+York,+NY+10279"><i class="fas fa-plus"></i></a>
     <h2> COPY/PRINT </h2>
      </div>
      
-                         <div class="card">
-  	<img class="img" src="https://docs.google.com/uc?id=1yRP1YMoXP4b4sNL5Fq3UgEKTcyWsu2B2" alt="header image" width=100% height=75%>
+       <div class="card" style="background:linear-gradient(90deg,#ADD100,#7B920A)">
     <a class="button" href="http://www.project233.com/teem"><i class="fas fa-plus"></i></a>
     <h2> TEEM </h2>
      </div>
      
-     <div class="card">
-  	<img class="img" src="https://cdn.wccftech.com/wp-content/uploads/2016/02/Samsung-logo1.png" alt="header image" width=100% height=75%>
+     <div class="card" style="background:linear-gradient(90deg,#134E5E,#71B280)">
     <a class="button" href="http://www.project233.com/samsung"><i class="fas fa-plus"></i></a>
     <h2> MONITOR </h2>
      </div>
      
-          <div class="card">
-  	<img class="img" src="https://pbs.twimg.com/profile_images/870413876273139718/0moL_47X_400x400.jpg" alt="header image" width=100% height=75%>
+          <div class="card" style="background:linear-gradient(90deg,#283048,#859398)">
     <a class="button" href="http://www.project233.com/solstice"><i class="fas fa-plus"></i></a>
     <h2> SCREEN SHARE </h2>
      </div>
