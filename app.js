@@ -1,5 +1,4 @@
-// app.js
-
+<script>
 window.addEventListener('load', function() {
 
   var webAuth = new auth0.WebAuth({
@@ -19,3 +18,4 @@ window.addEventListener('load', function() {
   });
 
 });
+	</script>
