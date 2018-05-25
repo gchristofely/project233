@@ -1,1 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="manifest" href="/manifest.json">
+	<link href="dist/hamburgers.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway:black,regular,thin|Open+Sans:regular">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+  <title>Project233</title>
+ <link rel="icon" href="https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW" type="image/gif" sizes="16x16">
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIZX8jbE8D3xGJSeN2CgvCYZ1VFWRBEXc&callback=initMap"
+  type="text/javascript"></script>
+  
+  <style>
+  
+h2{
+color:black;
+font-family: open sans, helvetica, arial;
+text-decoration: underline;
+letter-spacing: 3px;
+line-height: 0.7;
+font-style: bold;
+}
+  h5{
+  text-align: justify;
+  color:black;
+  font-family: 'Open Sans', Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  position:absolute;
+  bottom:0vh;
+  left:3vw;
+  right:5vw;
+  z-index:1;
+  background-color:#e5e5e5;
+  padding:10px;
+  width:90vw;
+  text-size:3vw;
+  }
+  
+  
+   .square {
+  height: 5px;
+  width: 40%;
+  background-color: white;
+  margin-left:27.5%
+}
+#map-canvas {
+width: calc(100% + 20px);
+width:-webkit-calc(100% + 20px);
+height: 101vh;
+position:fixed;
+top:-10px;
+left:-10px;
+right:-10px;
+bottom:-10px;
+x-overflow:hidden;
+}
+.button{
+    position: relative;
+    	right:3%;
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 100%;
+    width:60px;
+    height:60px;
+    margin:3%;
+    padding:10px;
+    outline: none;
+    }
+    
+    .button:focus {
+    background-color: white;
+}
+   .button:active {
+    background-color: white;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
+  padding:8px;
+  margin-top:5px;
+  width:100%;
+  justify-content: center;
+  z-index:1;
+  position:absolute;
+  bottom:4vh;
+  
+}
+  
+   .hamburger {
+  padding: 15px 15px;
+  position: fixed;
+   top:0;
+    left:0;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  overflow: visible;
+  outline:0;
+  z-index:99;}
+  .hamburger:hover {
+    opacity: 0.7; }
+.hamburger-box {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+   position: fixed;
+   top:15px;
+    left:10px;
+  outline:0;
+  z-index:99;}
+.hamburger-inner {
+  display: block;
+  top: 0%;
+  margin-top: -2px;
+  outline:0;}
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 24px;
+    height: 2px;
+    background-color: black;
+    border-radius: 0px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+    outline:0;}
+  .hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block;
+    outline:0;}
+  .hamburger-inner::before {
+    top: -10px;
+    outline:0;}
+  .hamburger-inner::after {
+    bottom: -10px;
+    outline:0;}
+  
+  .hamburger--slider .hamburger-inner {
+  top: 2px;
+  outline:0;}
+  .hamburger--slider .hamburger-inner::before {
+    top: 10px;
+    transition-property: transform, opacity;
+    transition-timing-function: ease;
+    transition-duration: 0.15s;
+    outline:0;}
+  .hamburger--slider .hamburger-inner::after {
+    top: 20px;
+    outline:0;}
+.hamburger--slider.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+  outline:0;}
+  .hamburger--slider.is-active .hamburger-inner::before {
+    transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+    opacity: 0;
+    outline:0;}
+  .hamburger--slider.is-active .hamburger-inner::after {
+    transform: translate3d(0, -20px, 0) rotate(-90deg);
+    outline:0;}
+    
+    .overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background-color: white;
+    background-color: white;
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+.overlay-content {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    text-align: left;
+    margin-top: 30px;
+    margin-left:10px;
+    font-family: "Raleway", Helvetica, arial;
+}
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 8vw;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+    .home{
+    text-align: right;
+    font-family: "Open Sans", Helvetica, arial;
+    font-weight:regular;
+    color: white;
+    transform: rotate(90deg);
+    position: absolute;
+    right:-25px;
+    top:70px;
+    font-size: 12px;
+    z-index:1;
+    background-color:#d63a0e;
+    padding:5px;
+    }
+    
+    ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  @media screen and (min-height: 600px) {
+  h5{
+  text-align: justify;
+  color:black;
+  font-family: 'Open Sans', Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  position:absolute;
+  bottom:0vh;
+  left:3vw;
+  right:5vw;
+  z-index:1;
+  background-color:#e5e5e5;
+  padding:10px;
+  width:90vw;
+  text-size:12px;
+  }
+}
 
+ .rules {
+  height: 30px;
+  width: 100%;
+  padding-top:12px;
+  font-family: Open Sans bold, Helvetica, Arial;
+  background-color: #f2f2f2;
+  border: none;
+  color: black;
+  font-size: 14px;
+  cursor: pointer;
+  text-align:center;
+  text-decoration: none;
+  position: fixed;
+    bottom: 0%;
+    left:0;
+}
+    
+</style>
+
+<script type="text/javascript">
+window.onload=function(){
+var gmarkers1 = [];
+var markers1 = [];
+var infowindow = new google.maps.InfoWindow({
+content: ''
+});
+// Our markers
+markers1 = [
+['0', 'city hall', 40.782524, -74.078358, 'parks'],
+['1', 'wtc', 40.783524, -74.072358, 'shopping'],
+];
+/**
+* Function to init map
+*/
+function initialize() {
+var center = new google.maps.LatLng(40.712524, -74.008358);
+var mapOptions = {
+zoom: 12,
+center: center,
+mapTypeId: google.maps.MapTypeId.TERRAIN,
+disableDefaultUI: true
+};
+map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+for (i = 0; i < markers1.length; i++) {
+addMarker(markers1[i]);
+}
+}
+/**
+* Function to add marker to map
+*/
+function addMarker(marker) {
+var category = marker[4];
+var title = marker[1];
+var pos = new google.maps.LatLng(marker[2], marker[3]);
+var content = marker[1];
+marker1 = new google.maps.Marker({
+title: title,
+position: pos,
+category: category,
+map: map
+});
+gmarkers1.push(marker1);
+// Marker click listener
+google.maps.event.addListener(marker1, 'click', (function(marker1, content) {
+return function() {
+console.log('Gmarker 1 gets pushed');
+infowindow.setContent(content);
+infowindow.open(map, marker1);
+map.panTo(this.getPosition());
+map.setZoom(15);
+}
+})(marker1, content));
+}
+/**
+* Function to filter markers by category
+*/
+filterMarkers = function(category) {
+for (i = 0; i < markers1.length; i++) {
+marker = gmarkers1[i];
+// If is same category or category not picked
+if (marker.category == category || category.length === 0) {
+marker.setVisible(true);
+}
+// Categories don't match
+else {
+marker.setVisible(false);
+}
+}
+}
+// Init map
+initialize();
+}
+</script>
+</head>
+<body>
+
+<div id="myNav" class="overlay">
+  <div class="overlay-content">
+<a href="http://www.project233.com">Home</a>
+    <a href="http://www.project233.com/guidelines">Community Guidelines</a>
+    <a href="http://www.project233.com/contact">Contact</a>
+    <a href="http://www.project233.com/nearby">Nearby</a>
+    <a href="http://www.project233.com/calendar">Calendar of Events</a>
+    <a href="http://www.project233.com/howto">How To</a>
+    <a href="http://www.project233.com/useful">Useful</a>
+    <a href="http://www.project233.com/pets">Pets</a>
+  </div>
+</div>
+
+<button class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+
+<div class="home">PETS | PROJECT233</div>
+
+<div id="map-canvas"></div>
+	
+<div class="flex-container">
+<button class="button" value="parks" onclick="filterMarkers(this.value)"><i class="fas fa-tree"></i></button>
+<button class="button" value="shopping" onclick="filterMarkers(this.value)"><i class="fas fa-shopping-cart"></i></button>
+</div>
+
+<a class="rules" href="http://www.project233.com/pets/rules">PET GUIDELINES</a>
+
+
+<script>
+  var hamburger = document.querySelector(".hamburger");
+  hamburger.addEventListener("click", function openNav() {
+  		document.getElementById("myNav").style.height = "100%";
+		this.classList.toggle("is-active");
+    	if (this.classList.contains('is-active')){
+      	openNav();
+    } else {
+      closeNav();
+    }
+  });
+</script>
+
+<script>
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+</script>
+
+<script>
+// tell the embed parent frame the height of the content
+if (window.parent && window.parent.parent){
+window.parent.parent.postMessage(["resultsFrame", {
+height: document.body.getBoundingClientRect().height,
+slug: "drytwvL8"
+}], "*")
+}
+</script>
+
+	
+</body>
+</html>
