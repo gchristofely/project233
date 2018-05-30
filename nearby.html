@@ -255,7 +255,7 @@ x-overflow:hidden;
   text-size:12px;
   }
 }
-    
+  
 </style>
 
 <script type="text/javascript">
@@ -267,15 +267,21 @@ content: ''
 });
 // Our markers
 markers1 = [
-['0', 'city hall', 40.782524, -74.078358, 'parks'],
-['1', 'duane reade', 40.762524, -74.048358, 'pharmacy'],
-['2', 'wtc', 40.783524, -74.072358, 'shopping'],
-['3', 'chipotle', 40.752524, -74.074358, 'food'],
-['4', 'chipotle', 40.762524, -74.074358, 'banks'],
-['5', 'chipotle', 40.772524, -74.074358, 'gyms'],
-['6', 'chipotle', 40.782524, -74.074358, 'bars'],
-['7', 'chipotle', 40.792524, -74.074358, 'cafe'],
-['8', 'chipotle', 40.82524, -74.074358, 'train'],
+['0', '<b>Potbelly</b><br>Sandwiches<br>Price: $', 40.714421, -74.005826, 'food'],
+['1', '<b>The Hummus & Pita Co.</b><br>Fast Mediterranean<br>Price: $', 40.714698, -74.006853, 'food'],
+['2', '<b>Sophies</b><br>Cuban<br>Price: $', 40.714645, -74.007623, 'food'],
+['3', '<b>Nish Nush</b><br>Falafel<br>Price: $', 40.715735, -74.007603, 'food'],
+['4', '<b>Chipotle</b><br>Mexican<br>Price: $', 40.714628, -74.006442, 'food'],
+['5', '<b>Magic Mix Juicery</b><br>Juice Bar<br>Price: $', 40.709672, -74.006830, 'food'],
+['6', '<b>Brodys Bagels</b><br>Bagels<br>Price: $', 40.710287, -74.007175, 'food'],
+['7', '<b>Vietspot Noodle & Sandwich</b><br>Vietnamese<br>Price: $', 40.710571, -74.007608, 'food'],
+['8', '<b>Sandwich House</b><br>Sandwiches<br>Price: $', 40.711068, -74.007689, 'food'],
+['9', '<b>Harry & Idas Lunchette</b><br>Sandwiches<br>Price: $', 40.713177, -74.008218, 'food'],
+['10', '<b>Muscle Maker Grill</b><br>Healthy<br>Price: $', 40.713393, -74.008176, 'food'],
+
+['7', '<b>Benevenuto Cafe</b><br>Deli<br>Price: $$', 40.719324, -74.010115 , 'food'],
+['7', '<b>Lenwich</b><br>Deli<br>Price: $$', 40.713519, -74.008653 , 'food'],
+['8', '<b>Pret a Manger</b><br>Salad, Soup & Sandwich<br>Price: $$', 40.713247, -74.010207 , 'food'],
 ];
 /**
 * Function to init map
@@ -283,7 +289,7 @@ markers1 = [
 function initialize() {
 var center = new google.maps.LatLng(40.712524, -74.008358);
 var mapOptions = {
-zoom: 12,
+zoom: 15,
 center: center,
 mapTypeId: google.maps.MapTypeId.TERRAIN,
 disableDefaultUI: true
