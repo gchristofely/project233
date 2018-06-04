@@ -345,6 +345,28 @@ markers1 = [
 ['71', '<b>SoulCycle Tribeca</b><br>Cycling<br>Price: <b>$$</b>$$',40.716220, -74.012564, 'gyms'],
 ['72', '<b>Blink FIDI</b><br>Gym<br>Price: <b>$$</b>$$',40.711138, -74.007371, 'gyms'],
 ['73', '<b>Planet Fitness</b><br>Gym<br>Price: <b>$</b>$$$',40.720930, -74.004374, 'gyms'],
+
+['74', '<b>Smyth Hotel</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.715287, -74.009111, 'hotel'],
+
+['75', '<b>The Beekman</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>',40.711512, -74.006709, 'hotel'],
+
+['76', '<b>The Four Seasons</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>',40.713131, -74.008988, 'hotel'],
+
+['77', '<b>Residence Inn</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.709856, -74.009900, 'hotel'],
+
+['78', '<b>Aloft Manhattan Downtown</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.710645, -74.006776, 'hotel'],
+
+['79', '<b>Millenium Hilton</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.711446, -74.010318, 'hotel'],
+
+['80', '<b>AKA Wall Street</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.708192, -74.007726, 'hotel'],
+
+['81', '<b>Frederick Hotel</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>',40.715751, -74.008963, 'hotel'],
+
+['82', '<b>W Hotel</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.709488, -74.013592, 'hotel'],
+
+['83', '<b>Club Quarters Hotel</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.710071, -74.013865, 'hotel'],
+
+['84', '<b>Conrad New York</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>',40.715283, -74.015730, 'hotel'],
 ];
 /**
 * Function to init map
@@ -437,14 +459,14 @@ initialize();
 <div class="flex-container">
 <button class="button" value="fast food" onclick="filterMarkers(this.value)"><i class="fas fa-utensils"></i></button>
 <button class="button" value="food" onclick="filterMarkers(this.value)"><i class="fas fa-wine-glass"></i></button>
+<button class="button" value="cafe" onclick="filterMarkers(this.value)"><i class="fas fa-coffee"></i></button>
+<button class="button" value="bars" onclick="filterMarkers(this.value)"><i class="fas fa-beer"></i></button>
 <button class="button" value="pharmacy" onclick="filterMarkers(this.value)"><i class="fas fa-pills"></i></button>
-<button class="button" value="parks" onclick="filterMarkers(this.value)"><i class="fas fa-tree"></i></button>
+<button class="button" value="urgent care" onclick="filterMarkers(this.value)"><i class="fas fa-hospital-symbol"></i></button>
 <button class="button" value="shopping" onclick="filterMarkers(this.value)"><i class="fas fa-shopping-cart"></i></button>
 <button class="button" value="banks" onclick="filterMarkers(this.value)"><i class="fas fa-dollar-sign"></i></button>
 <button class="button" value="gyms" onclick="filterMarkers(this.value)"><i class="fas fa-football-ball"></i></button>
-<button class="button" value="bars" onclick="filterMarkers(this.value)"><i class="fas fa-beer"></i></button>
-<button class="button" value="cafe" onclick="filterMarkers(this.value)"><i class="fas fa-coffee"></i></button>
-<button class="button" value="train" onclick="filterMarkers(this.value)"><i class="fas fa-subway"></i></button>
+<button class="button" value="hotel" onclick="filterMarkers(this.value)"><i class="fas fa-bed"></i></button>
 </div>
 
 
