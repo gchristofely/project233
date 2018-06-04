@@ -1,17 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>	
+<head>
 	
 	<link rel="manifest" href="/manifest.json">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<link rel="apple-touch-icon" href="https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW">
 	<link href="dist/hamburgers.css" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Raleway:black,regular,thin|Open+Sans:regular">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
   <title>Project233</title>
  <link rel="icon" href="https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW" type="image/gif" sizes="16x16">
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIZX8jbE8D3xGJSeN2CgvCYZ1VFWRBEXc&callback=initMap"
+  type="text/javascript"></script>
+  
   <style>
+  
+body, html {
+  height: 100vh;
+  margin:0px;
+  padding:0px;
+  background-color:#f2f2f2;
+  }
+  
+    .image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    min-width: 100%; 
+    height: 70vh;
+    object-fit:cover;
+    z-index: -1;
+    }
+  
+  .scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  position:relative;
+  top:10vh;
+  height:75vh;
+}
+
+  .card {
+    background-color: #f2f2f2;
+    border-radius:10px;
+    width: 96vw;
+    margin-right:2vw;
+    margin-left:2vw;
+    margin-top:1vh;
+    height:15vh;
+    position:relative;
+    top:5vh;
+}
+  
+    h2{
+  text-align: left;
+  color: black;
+  font-size:3.5vh;
+  width:96vw;
+text-decoration:underline;
+  font-family: "Raleway", Helvetica, Arial;
+  font-weight: 100;
+  letter-spacing: 4px;
+  position: relative;
+  left:2vw;
+  top:-3vh;
+  }
+  
+
+.button{
+    color: black;
+    font-size:3vh;
+    position: relative;
+    right:-80vw;
+    top:4vh;
+    padding:5px 9px;
+    text-align: center;
+    z-index:1;
+    border-radius:100%;
+}
+
+.button-services{
+    color: black;
+    font-size:3vh;
+    position: relative;
+    right:-80vw;
+    top:4vh;
+    padding:5px 9px;
+    text-align: center;
+    z-index:1;
+    border-radius:100%;
+}
+
+p{
+	color:black;
+	z-index:2;
+    position:relative;
+    left:2vw;
+  	top:8vh;
+    font-family: open sans, helvetica, arial;
+    font-size:2.5vh;
+    text-align: left;
+}
+
+h1{
+color:black;
+font-family: open sans bold, helvetica, arial;
+letter-spacing: 3px;
+height:10vh;
+font-style: bold;
+margin-left:5vw;
+margin-bottom:3vh;
+Position:relative;
+top:10vh;
+font-size:5vh;
+}
+
+h5{
+  text-align: justify;
+  color:white;
+  font-family: Open Sans, Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  }
+
+h3{
+  text-align: justify;
+  color:white;
+  font-family: Open Sans, Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  position:relative;
+  top:0;
+  }
+
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
+  width:100vw;
+  justify-content: center;
+  z-index:1;
+  position:absolute;
+}
   
    .hamburger {
   padding: 15px 15px;
@@ -93,91 +226,12 @@
   .hamburger--slider.is-active .hamburger-inner::after {
     transform: translate3d(0, -20px, 0) rotate(-90deg);
     outline:0;}
-  
-  body{
-	display:grid;
-    grid-template-columns:[col1]8%[col2]8%[col3]8%[col4]8%[col5]8%[col6]8%[col7]8%[col8]8%[col9]8%[col10]8%[end];
-    grid-template-rows:[row1]8%[row2]8%[row3]8%[row4]8%[row5]8%[row6]8%[row7]8%[row8]8%[row9]8%[row10]8%[row11]8%[end];
-  	grid-gap: 2%;
-	  }
-  
-  img {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%; 
-    height: 100%;
-    z-index: -1;
-    }
-
-  	h1 {
-    grid-column: col1 / col9;
-	grid-row: row1/row6;
-	text-align:left;
-    letter-spacing: 3px;
-    font-family: 'Raleway';
-    font-weight:black;
-    color: white;
-    margin-top:50px;
-    margin-bottom:-2%;
-	}
     
-    p{
-    grid-column: col1 / col9;
-	grid-row: row7;
-    text-align: left;
-    width: 100%;
-    font-family: "Raleway", Helvetica, arial;
-    font-weight:regular;
-    color: white;
-    }
-    
-    .home{
-    text-align: right;
-    font-family: "Open Sans", Helvetica, arial;
-    font-weight:regular;
-    color: white;
-    transform: rotate(90deg);
-    position: fixed;
-    right:-25px;
-    top:70px;
-    font-size: 12px;
-    }
-    
-    .button {
-    position:fixed;
-    bottom:40px;
-    right:-25px;
-  padding:15px;
-  font-family: 'Open Sans', Helvetica, Arial;
-  background: #d63a0e;
-  color: white;
-  font-size: 12px;
-  cursor: pointer;
-  text-align:center;
-  text-decoration: none;
-  transform: rotate(90deg);
-}
-    .button2 {
-    position:fixed;
-    bottom:25px;
-    right:50px;
-  padding:15px;
-  font-family: 'Open Sans', Helvetica, Arial;
-  background: #d63a0e;
-  color: white;
-  font-size: 12px;
-  cursor: pointer;
-  text-align:center;
-  text-decoration: none;
-  transform: rotate(90deg);
-}
-
-.overlay {
+    .overlay {
     height: 0%;
     width: 100%;
     position: fixed;
-    z-index: 1;
+    z-index: 99;
     top: 0;
     left: 0;
     background-color: white;
@@ -226,21 +280,109 @@
   }
 }
 
-::-webkit-scrollbar {
+    .home{
+    text-align: right;
+    font-family: "Open Sans", Helvetica, arial;
+    font-weight:regular;
+    color: white;
+    position: fixed;
+    right:-40px;
+    top:80px;
+    font-size: 12px;
+    z-index:21;
+    background-color:#cfe527;
+    padding:5px;
+    transform: rotate(90deg);
+    }
+    
+    ::-webkit-scrollbar {
     display: none;
   }
+  
+  @media screen and (min-height: 600px) {
+  h5{
+  text-align: justify;
+  color:black;
+  font-family: 'Open Sans', Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  position:absolute;
+  bottom:0vh;
+  left:3vw;
+  right:5vw;
+  z-index:1;
+  background-color:#e5e5e5;
+  padding:10px;
+  width:90vw;
+  text-size:12px;
+  }
+}
 
-    
-   </style>
+.tablink {
+    text-align: center;
+    display:inline-block;
+    color: white;
+    position: sticky;
+    top:1.5vh;
+    left:15vw;
+    margin-left:8vw;
+    z-index:2;
+    letter-spacing: 3px;
+    background-color: #f2f2f2;
+    color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 7px 5vw;
+    font-size: 12px;
+    border-radius:10px;
+}
+
+.tablink:hover {
+    background-color: white;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    height: 100vh;
+}
+
+.header{
+background-color:#f2f2f2;
+width:100vw;
+height:10vh;
+position:fixed;
+top:0vw;
+z-index:20;
+}
+
+.button2 {
+    position:fixed;
+    bottom:40px;
+    right:-10px;
+  padding:5px;
+  font-family: 'Open Sans', Helvetica, Arial;
+  background: #cfe527;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  text-align:center;
+  text-decoration: none;
+  transform: rotate(90deg);
+}
+
+</style>
+
 </head>
 <body>
 
-<img src="https://deathtothestockphoto.com/wp-content/uploads/2017/12/Deat_to_Stock_Goods_8.jpg" alt="background">
-	
+<div class="header">
+
 <div id="myNav" class="overlay">
   <div class="overlay-content">
-	  
-<a href="http://www.project233.com">Home</a>
+  	<a href="http://www.project233.com">Home</a>
     <a href="http://www.project233.com/guidelines">Community Guidelines</a>
     <a href="http://www.project233.com/contact">Contact</a>
     <a href="http://www.project233.com/nearby">Nearby</a>
@@ -256,14 +398,41 @@
     <span class="hamburger-inner"></span>
   </span>
 </button>
-	
-<h1 style="font-size:16vw;"> HELLO. </h1>
-<p  style="font-size:3vw;">smarter working. by <span style="font-weight:900"> M MOSER ASSOCIATES</span></p>
 
-<a class="button" href="/contact">INFORMATION<class="button"></a>
-<a class="button2" href="/download">GET APP<class="button2"></a>
 
-<div class="home">HOME | PROJECT233</div>
+
+<button class="tablink" onclick="openPage('APPLE', this, '#cfe527')" id="defaultOpen">APPLE</button>
+<button class="tablink" onclick="openPage('ANDROID', this, '#cfe527')">ANDROID</button>
+
+</div>
+<div class="home">DOWNLOAD | PROJECT233</div>
+<div id="APPLE" class="tabcontent">
+
+<h1> APPLE </h1>
+
+  <div class="card" style="background:transparent">
+    <p><i class="fas fa-plus"></i> OPEN <b>SAFARI</b></p>
+    <p><i class="fas fa-plus"></i> TAP THE <b>SHARE</b> BUTTON</p>
+    <p><i class="fas fa-plus"></i> SELECT<b> "Add to Home Screen"</b></p>
+    <p><i class="fas fa-plus"></i> <b>ENJOY!</b></p>
+    </div>
+    
+  </div>
+
+<div id="ANDROID" class="tabcontent">
+<h1> ANDROID </h1>
+
+  <div class="card" style="background:transparent">
+    <p><i class="fas fa-plus"></i> OPEN <b>CHROME</b></p>
+    <p><i class="fas fa-plus"></i> TAP THE <b>SHARE</b> BUTTON</p>
+    <p><i class="fas fa-plus"></i> SELECT<b> "Add to Home Screen"</b></p>
+    <p><i class="fas fa-plus"></i> <b>ENJOY!</b></p>
+    </div>
+
+</div>
+
+<a class="button2" href="/contact">INFORMATION<class="button"></a>
+
 
 <script>
   var hamburger = document.querySelector(".hamburger");
@@ -286,21 +455,26 @@ function openNav() {
 function closeNav() {
     document.getElementById("myNav").style.height = "0%";
 }
-</script>
-	<script type="text/javascript">
+</script>	
 
-<!--
-
-if (screen.width >= 699) {
-
-document.location = "/desktop.html";
+<script>
+function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
 
 }
-
-//-->
-
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
 </script>
-	
-	
+
 </body>
 </html>
