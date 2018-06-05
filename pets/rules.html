@@ -96,8 +96,10 @@
   .hamburger--slider.is-active .hamburger-inner::after {
     transform: translate3d(0, -20px, 0) rotate(-90deg);
     outline:0;}
+    
 .collapsible {
     background-size:cover;
+    background-position:center;
     color: white;
     cursor: pointer;
     padding: 100px;
@@ -122,7 +124,7 @@
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     background: #f2f2f2;
-    font-size: 12px;
+    font-size: 4.5vw;
     text-align:justify;
     font-family:'open sans'
 }
@@ -198,22 +200,48 @@
     background-color:#d63a0e;
     padding:5px;
     }
+    
+    .book{
+    font-family: "Open Sans", Helvetica, arial;
+    font-weight:regular;
+    color: white;
+    position: relative;
+    font-size: 12px;
+    z-index:1;
+    background-color:#d63a0e;
+    padding:5px;
+    text-decoration:none;
+    }
 
 </style>
 </head>
 <body>
 
+
+<script type="text/javascript">
+if (screen.width >= 699) {
+document.location = "/desktop.html";
+}
+</script>
+
+
 <div id="myNav" class="overlay">
   <div class="overlay-content">
-<a href="http://www.project233.com">Home</a>
+	<a href="http://www.project233.com">Home</a>
     <a href="http://www.project233.com/guidelines">Community Guidelines</a>
     <a href="http://www.project233.com/contact">Contact</a>
     <a href="http://www.project233.com/nearby">Nearby</a>
     <a href="http://www.project233.com/calendar">Calendar of Events</a>
     <a href="http://www.project233.com/howto">How To</a>
     <a href="http://www.project233.com/useful">Useful</a>
+    <a href="http://www.project233.com/well">WELL @ 233</a>
     <a href="http://www.project233.com/pets">Pets</a>
-  </div>
+    <a href="http://www.project233.com/libraryconnect">Rep Connect</a>
+    <br>
+    <br>
+    <br>
+    <a href="http://www.mmoser.com"><i class="far fa-copyright"></i> 2018 M Moser Associate LLC</a>
+  </div> 
 </div>
 
 <button class="hamburger hamburger--slider" type="button">
@@ -225,26 +253,31 @@
 <div class="home">PET GUIDELINES | PROJECT233</div>
 
 
-<button class="collapsible" style="background-image: url('https://docs.google.com/uc?id=15MvV4x2bvXpq60eqbTv0wBYKfdNNHfFl')">CLEAN UP</button>
+<button class="collapsible" style="background-image: url('https://docs.google.com/uc?id=15MvV4x2bvXpq60eqbTv0wBYKfdNNHfFl')">SCHEDULE YOUR VISIT</button>
 <div class="content">
-  <p>Our home is a physical representation of our identity, who we are as an organization and what we aspire to be. Being part of the M Moser NYC community means active participation in keeping a clean workplace environment. Some guidelines to consider:
-<ul>  
-<li>After eating a meal, a lunch with friends, or evening refreshments, clean up the area you’ve used, return condiments to the fridge and dispose of any waste. Avoid eating at desks and place dishes in the dishwasher.</li>
-<li>When you’re finished with any workspace, including desks, conference rooms, etc., return the space to the condition you found it in: clean, chair tucked, supplies returned. </li>
-<li>As part of being happy and healthy individuals, we will only have centralized waste receptacles. Please utilize them.</li>
-<li>Please do not store food in lockers. Personal food items should be stored in the pantry with your name on it.</li>
-</ul>
+<p>As much as we love our furry visitors, we have to coordinate their visits with our clients, guests, and events. Please check with our community manager or fill out the form below to coordinate.<br><br>
+
+<a class="book" href="http://www.project233.com/pets/book">BOOK A VISIT</a>
 </p>
 </div>
 
-<button class="collapsible" style="background-image: url('https://docs.google.com/uc?id=1CslRN4v-o6cWJCkOuUe6kOutgEwPXusr')">BOOK A ROOM</button>
+<button class="collapsible" style="background-image: url('https://docs.google.com/uc?id=1CslRN4v-o6cWJCkOuUe6kOutgEwPXusr')">CLEAN UP</button>
 <div class="content">
-  <p>Communication is everything. One way we communicate with one another is by booking workspaces. This lets everyone know you need the room for a specific purpose and allows us to make more effective use of our time. Utilize the room booking system to find an available space to meet. Additionally, starting and ending meetings on time helps us all stay organized and efficient.</p>
+  <p>Accidents happen! When they do, kindly clean them up. If you need assistance, contact our community manager.<br><br>
+  
+  <a class="book" href="http://www.project233.com/contact">CONTACT</a>
+  
+  </p>
 </div>
 
-<button class="collapsible" style="background-image: url('https://images.unsplash.com/photo-1515814472071-4d632dbc5d4a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=921135f5fda9784504e23c6e99e68e51&auto=format&fit=crop&w=934&q=80')">BOOK A ROOM</button>
+<button class="collapsible" style="background-image: url('https://docs.google.com/uc?id=1ac_iMcjX7bNeA1HbWjWO7IZh3UzvP2Mt')">ALWAYS HAVE A PARENT OR LEGAL GUARDIAN</button>
 <div class="content">
-  <p>Communication is everything. One way we communicate with one another is by booking workspaces. This lets everyone know you need the room for a specific purpose and allows us to make more effective use of our time. Utilize the room booking system to find an available space to meet. Additionally, starting and ending meetings on time helps us all stay organized and efficient.</p>
+  <p>Your pet's safety and wellness is of the uttmost importance. Before you leave the office for any reason or duration, please make sure you have an appointed "guardian" to watch over your pet.</p>
+</div>
+
+<button class="collapsible" style="background-image: url('https://images.unsplash.com/photo-1521907554502-7440e4702fc3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=47568e1c82503104064c9e7bd2785c06&auto=format&fit=crop&w=934&q=80')">NO BARKING</button>
+<div class="content">
+  <p>We want to create the best environment for our peers, and noise can be greatly distracting. Please try to keep your pet quiet, and when not possible, please take them out of the environment.</p>
 </div>
 
 <script>
