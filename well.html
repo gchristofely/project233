@@ -1,1 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="manifest" href="/manifest.json">
+	<link href="dist/hamburgers.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway:black,regular,thin|Open+Sans:regular">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+  <title>Project233</title>
+ <link rel="icon" href="https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW" type="image/gif" sizes="16x16">
+  <style>
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+}
+  
+   .hamburger {
+  padding: 15px 15px;
+  position: fixed;
+   top:0;
+    left:0;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  overflow: visible;
+  outline:0;
+  z-index:99;}
+  .hamburger:hover {
+    opacity: 0.7; }
 
+.hamburger-box {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+   position: fixed;
+   top:15px;
+    left:10px;
+  outline:0;
+  z-index:99;}
+
+.hamburger-inner {
+  display: block;
+  top: 0%;
+  margin-top: -2px;
+  outline:0;}
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 24px;
+    height: 2px;
+    background-color: black;
+    border-radius: 0px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+    outline:0;}
+  .hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block;
+    outline:0;}
+  .hamburger-inner::before {
+    top: -10px;
+    outline:0;}
+  .hamburger-inner::after {
+    bottom: -10px;
+    outline:0;}
+  
+  .hamburger--slider .hamburger-inner {
+  top: 2px;
+  outline:0;}
+  .hamburger--slider .hamburger-inner::before {
+    top: 10px;
+    transition-property: transform, opacity;
+    transition-timing-function: ease;
+    transition-duration: 0.15s;
+    outline:0;}
+  .hamburger--slider .hamburger-inner::after {
+    top: 20px;
+    outline:0;}
+
+.hamburger--slider.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+  outline:0;}
+  .hamburger--slider.is-active .hamburger-inner::before {
+    transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+    opacity: 0;
+    outline:0;}
+  .hamburger--slider.is-active .hamburger-inner::after {
+    transform: translate3d(0, -20px, 0) rotate(-90deg);
+    outline:0;}
+.collapsible {
+    background-size:cover;
+    color: white;
+    cursor: pointer;
+    padding: 100px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 6vw;
+    letter-spacing: 3px;
+    height:40vh;
+     box-shadow: 0px 5px 15px #b2b2b2;
+     position:relative;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 40px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background: #f2f2f2;
+    font-size: 4.5VW;
+    text-align:justify;
+    font-family:'open sans'
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    background-color: white;
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    text-align: left;
+    margin-top: 30px;
+    margin-left:10px;
+    font-family: "Raleway", Helvetica, arial;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 6vw;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+    .home{
+    text-align: right;
+    font-family: "Open Sans", Helvetica, arial;
+    font-weight:regular;
+    color: white;
+    transform: rotate(90deg);
+    position: fixed;
+    right:-50px;
+    top:90px;
+    font-size: 12px;
+    z-index:1;
+    background-color:#d63a0e;
+    padding:5px;
+    }
+
+</style>
+</head>
+<body>
+<!--
+<script type="text/javascript">
+if (screen.width >= 699) {
+document.location = "/desktop.html";
+}
+</script>
+
+-->
+
+<div id="myNav" class="overlay">
+  <div class="overlay-content">
+	<a href="http://www.project233.com">Home</a>
+    <a href="http://www.project233.com/guidelines">Community Guidelines</a>
+    <a href="http://www.project233.com/contact">Contact</a>
+    <a href="http://www.project233.com/nearby">Nearby</a>
+    <a href="http://www.project233.com/calendar">Calendar of Events</a>
+    <a href="http://www.project233.com/howto">How To</a>
+    <a href="http://www.project233.com/useful">Useful</a>
+    <a href="http://www.project233.com/well">WELL @ 233</a>
+    <a href="http://www.project233.com/pets">Pets</a>
+    <a href="http://www.project233.com/libraryconnect">Rep Connect</a>
+    <br>
+    <br>
+    <br>
+    <a href="http://www.mmoser.com"><i class="far fa-copyright"></i> 2018 M Moser Associate LLC</a>
+  </div> 
+</div>
+
+<button class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+
+<div class="home">WELL @ 233 | PROJECT233</div>
+
+<button class="collapsible" style="background-image: url('https://images.unsplash.com/photo-1424786194759-3e6b91d8d3bb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e4c942b7edc31db6c6a72fb1ac4bd376&auto=format&fit=crop&w=2100&q=80')">AIR</button>
+<div class="content">
+  <p>Our home is a physical representation of our identity, who we are as an organization and what we aspire to be. Being part of the M Moser NYC community means active participation in keeping a clean workplace environment. Some guidelines to consider:
+<ul>  
+<li>After eating a meal, a lunch with friends, or evening refreshments, clean up the area you’ve used, return condiments to the fridge and dispose of any waste. Avoid eating at desks and place dishes in the dishwasher.</li>
+<li>When you’re finished with any workspace, including desks, conference rooms, etc., return the space to the condition you found it in: clean, chair tucked, supplies returned. </li>
+<li>As part of being happy and healthy individuals, we will only have centralized waste receptacles. Please utilize them.</li>
+<li>Please do not store food in lockers. Personal food items should be stored in the pantry with your name on it.</li>
+</ul>
+</p>
+</div>
+<button class="collapsible" style="background-image: url('https://images.unsplash.com/photo-1495220282962-4d9fdab912d0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=735bbe01e2d820765688b3bac77dba6b&auto=format&fit=crop&w=934&q=80')">WATER</button>
+<div class="content">
+  <p>Communication is everything. One way we communicate with one another is by booking workspaces. This lets everyone know you need the room for a specific purpose and allows us to make more effective use of our time. Utilize the room booking system to find an available space to meet. Additionally, starting and ending meetings on time helps us all stay organized and efficient.</p>
+</div>
+<button class="collapsible" style="background-image: url('https://images.unsplash.com/photo-1517282009859-f000ec3b26fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d999a64158232232fe72510404f42537&auto=format&fit=crop&w=934&q=80')">FOOD</button>
+<div class="content">
+  <p>Being adaptive and flexible allows us to respond positively to our client’s needs. Our space is designed to support that flexibility but requires us to keep it that way. If you have a long meeting, a doctor’s appointment, or are simply leaving for the day, take your belongings with you or leave them in your locker. Additionally, only use one space at a time, it allows other people to utilize the space to its fullest potential.</p>
+</div>
+
+<button class="collapsible" style="background-image: url(https://images.unsplash.com/photo-1495137675798-14250d1e9070?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=842140d2291ebab40e09045ec988b5ae&auto=format&fit=crop&w=927&q=80)">LIGHT</button>
+<div class="content">
+  <p>It’s important to respect that we all share our environment and it’s important to have respect for the people around you. In addition to cleaning up after yourself, please be respectful of your noise level: don’t hold speaker phone conference calls where people are focusing and don’t play music too loudly in the open.</p>
+</div>
+
+<button class="collapsible" style="background-image: url(https://images.unsplash.com/photo-1522871547718-12c7df6d6795?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9e1dff876cd976c5a2b500b060fd8272&auto=format&fit=crop&w=975&q=80)">FITNESS</button>
+<div class="content">
+  <p>We are partners to our clients and their businesses and are part of a larger community in New York. As part of being a good partner, treat visitors (of any kind) as you would someone visiting your home. Greet them at the door and ask if they need help, offer coffee and other beverages. Let the community manager know when you expect visitors so they can be properly greeted.</p>
+</div>
+
+<button class="collapsible" style="background-image: url(https://images.unsplash.com/photo-1467241850596-6a0de48568da?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3c1f57e313ec82598cfb80047483e93a&auto=format&fit=crop&w=933&q=80)">COMFORT</button>
+<div class="content">
+  <p>Choice is a large part of motivation and personal effectiveness. Choose a space based on your daily activities, personal preference, team, or even your mood. Try not to “camp out” in one space for too long, unless necessary. When you leave the office, let the community manager know.</p>
+</div>
+
+<button class="collapsible" style="background-image: url(https://images.unsplash.com/photo-1521279106736-79df8ae0c183?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=77ffeb7aa4e5aef4a42d3bfcb98a3396&auto=format&fit=crop&w=934&q=80)">MIND</button>
+<div class="content">
+  <p>Having a space that’s free of debris and clutter is essential to realizing our potential. When you’re finished with a set of drawings, a document, a finish sample, or anything else, dispose of it or return it to its original owner. If long-term storage is required, utilize your locker, a file cabinet, or consult with the community manager.</p>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+<script>
+  var hamburger = document.querySelector(".hamburger");
+  hamburger.addEventListener("click", function openNav() {
+  		document.getElementById("myNav").style.height = "100%";
+		this.classList.toggle("is-active");
+    	if (this.classList.contains('is-active')){
+      	openNav();
+    } else {
+      closeNav();
+    }
+  });
+</script>
+
+<script>
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+</script>
+
+</body>
+</html>
