@@ -79,6 +79,8 @@ body, html {
     width:5vw;
     text-align: center;
     z-index:1;
+	background:transparent;
+	border: none;
 }
 
 .help-button{
@@ -449,7 +451,8 @@ document.location = "/desktop.html";
     <h2> SOLSTICE </h2>
         </div>
 
-    
+<button class="button" onclick="goBack()"><i class="fas fa-arrow-left"></button>
+	
     <div id="Time" class="tabcontent">
       	<img class="img" src="https://images.unsplash.com/photo-1507207611509-ec012433ff52?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=72864c67cc2568dba775db2ca59d3f5c&auto=format&fit=crop&w=934&q=80" alt="header image" width=100% height=75%>
     <p> Quick Start </p>
@@ -469,13 +472,16 @@ src="https://www.youtube.com/embed/2cXrJlaruS4">
   </div>
   
       <div class="tab-box">
-<a class="button" href="http://www.project233.com/howto"><i class="fas fa-arrow-left"></i></a>
 <button class="tablink" onclick="openPage('Time', this, '#005b44')"id="defaultOpen"><i class="fas fa-cogs"></i></button>
 <a class="help-button" href="http://www.project233.com/helpdesk"><i class="fas fa-question"></i></a>
 <button class="tablink" onclick="openPage('Activities', this, '#005b44')"><i class="fas fa-play"></i></button>
 </div>
     
-
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 
 <script>
   var hamburger = document.querySelector(".hamburger");
