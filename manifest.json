@@ -2,6 +2,9 @@
 {
   "short_name": "Project233",
   "name": "Project 233",
+  "lang": "en-US",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW",
