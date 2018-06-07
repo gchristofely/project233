@@ -1,24 +1,15 @@
 {
-  "short_name": "Project233",
   "name": "Project 233",
+  "short_name": "Project 233",
+  "lang": "en-US",
+  "start_url": "www.project233.com",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#d63a0e",
   "icons": [
     {
-      "src": "https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW",
-      "type": "image/png",
-      "sizes": "48x48"
-    },
-    {
-      "src": "https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW",
-      "type": "image/png",
-      "sizes": "96x96"
-    },
-    {
-      "src": "https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW"
     }
-  ],
-  "start_url": "www.project233.com",
-  "display": "standalone",
-  "orientation": "portrait"
+  ]
 }
