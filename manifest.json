@@ -3,7 +3,7 @@
   "short_name": "Project 233",
   "lang": "en-US",
   "start_url": "www.project233.com",
-  "scope": "www.project233.com/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#d63a0e",
