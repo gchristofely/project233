@@ -289,8 +289,11 @@ content: ''
 });
 // Our markers
 markers1 = [
-['0', 'city hall', 40.782524, -74.078358, 'parks'],
-['1', 'wtc', 40.783524, -74.072358, 'shopping'],
+['0', '<b>Tribeca Dog Run</b><br>Dog Park', 40.716196, -74.012088, 'parks'],
+['1', '<b>North End Dog Run</b><br>Dog Park', 40.716798, -74.014622, 'parks'],
+['2', '<b>Sirius Dog Run</b><br>Dog Park', 40.712043, -74.017007, 'parks'],
+
+['3', '<b>Unleashed By Petco</b><br>Pet Store', 40.716232, -74.010228, 'shopping'],
 ];
 /**
 * Function to init map
@@ -298,7 +301,7 @@ markers1 = [
 function initialize() {
 var center = new google.maps.LatLng(40.712524, -74.008358);
 var mapOptions = {
-zoom: 12,
+zoom: 15,
 center: center,
 mapTypeId: google.maps.MapTypeId.TERRAIN,
 disableDefaultUI: true
