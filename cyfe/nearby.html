@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Project233</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="manifest" href="/manifest.json">
+ 	<link rel="icon" href="https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW" type="image/gif" sizes="16x16">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon" href="https://docs.google.com/uc?id=12oWwRPCipTX8edePDD3jDD2510Ykb6ZW">
+	<link href="dist/hamburgers.css" rel="stylesheet">
+	
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:black,regular,thin|Open+Sans:regular">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+  
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIZX8jbE8D3xGJSeN2CgvCYZ1VFWRBEXc&callback=initMap"
+  type="text/javascript"></script>
+  
+  <style>
+  
+h2{
+color:black;
+font-family: open sans, helvetica, arial;
+text-decoration: underline;
+letter-spacing: 3px;
+line-height: 0.7;
+font-style: bold;
+}
+  h5{
+  text-align: justify;
+  color:black;
+  font-family: 'Open Sans', Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  position:absolute;
+  bottom:0vh;
+  left:3vw;
+  right:5vw;
+  z-index:1;
+  background-color:#e5e5e5;
+  padding:10px;
+  width:90vw;
+  text-size:3vw;
+  }
+  
+  
+   .square {
+  height: 5px;
+  width: 40%;
+  background-color: white;
+  margin-left:27.5%
+}
+#map-canvas {
+width: calc(100% + 20px);
+width:-webkit-calc(100% + 20px);
+height: 101vh;
+position:fixed;
+top:-10px;
+left:-10px;
+right:-10px;
+bottom:-10px;
+x-overflow:hidden;
+}
+.button{
+    position: relative;
+    	right:3%;
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 100%;
+    width:60px;
+    height:60px;
+    margin:3%;
+    padding:10px;
+    outline: none;
+    }
+    
+    .button:focus {
+    background-color: #d63a0e;
+}
+   .button:active {
+    background-color: #d63a0e;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
+  padding:8px;
+  margin-top:5px;
+  width:100%;
+  justify-content: center;
+  z-index:1;
+  position:absolute;
+  bottom:2vh;
+  
+}
+  
+   .hamburger {
+  padding: 15px 15px;
+  position: fixed;
+   top:0;
+    left:0;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  overflow: visible;
+  outline:0;
+  z-index:99;}
+  .hamburger:hover {
+    opacity: 0.7; }
+.hamburger-box {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+   position: fixed;
+   top:15px;
+    left:10px;
+  outline:0;
+  z-index:99;}
+.hamburger-inner {
+  display: block;
+  top: 0%;
+  margin-top: -2px;
+  outline:0;}
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 24px;
+    height: 2px;
+    background-color: black;
+    border-radius: 0px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+    outline:0;}
+  .hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block;
+    outline:0;}
+  .hamburger-inner::before {
+    top: -10px;
+    outline:0;}
+  .hamburger-inner::after {
+    bottom: -10px;
+    outline:0;}
+  
+  .hamburger--slider .hamburger-inner {
+  top: 2px;
+  outline:0;}
+  .hamburger--slider .hamburger-inner::before {
+    top: 10px;
+    transition-property: transform, opacity;
+    transition-timing-function: ease;
+    transition-duration: 0.15s;
+    outline:0;}
+  .hamburger--slider .hamburger-inner::after {
+    top: 20px;
+    outline:0;}
+.hamburger--slider.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+  outline:0;}
+  .hamburger--slider.is-active .hamburger-inner::before {
+    transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+    opacity: 0;
+    outline:0;}
+  .hamburger--slider.is-active .hamburger-inner::after {
+    transform: translate3d(0, -20px, 0) rotate(-90deg);
+    outline:0;}
+    
+    .overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background-color: white;
+    background-color: white;
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+.overlay-content {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    text-align: left;
+    margin-top: 30px;
+    margin-left:10px;
+    font-family: "Raleway", Helvetica, arial;
+}
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 6vw;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+    .home{
+    text-align: right;
+    font-family: "Open Sans", Helvetica, arial;
+    font-weight:regular;
+    color: white;
+    transform: rotate(90deg);
+    position: absolute;
+    right:-25px;
+    top:70px;
+    font-size: 12px;
+    z-index:1;
+    background-color:#d63a0e;
+    padding:5px;
+    }
+    
+    ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  @media screen and (min-height: 600px) {
+  h5{
+  text-align: justify;
+  color:black;
+  font-family: 'Open Sans', Helvetica, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  position:absolute;
+  bottom:0vh;
+  left:3vw;
+  right:5vw;
+  z-index:1;
+  background-color:#e5e5e5;
+  padding:10px;
+  width:90vw;
+  text-size:12px;
+  }
+}
+  
+</style>
+
+<script type="text/javascript">
+window.onload=function(){
+var gmarkers1 = [];
+var markers1 = [];
+var infowindow = new google.maps.InfoWindow({
+content: ''
+});
+// Our markers
+markers1 = [
+['0', '<b>Potbelly</b><br>Sandwiches<br>Price: <b>$</b>$$$', 40.714421, -74.005826, 'fast food'],
+['1', '<b>The Hummus & Pita Co.</b><br>Fast Mediterranean<br>Price: <b>$</b>$$$', 40.714698, -74.006853, 'fast food'],
+['2', '<b>Sophies</b><br>Cuban<br>Price: <b>$</b>$$$', 40.714645, -74.007623, 'fast food'],
+['3', '<b>Nish Nush</b><br>Falafel<br>Price: <b>$</b>$$$', 40.715735, -74.007603, 'fast food'],
+['4', '<b>Chipotle</b><br>Mexican<br>Price: <b>$</b>$$$', 40.714628, -74.006442, 'fast food'],
+['5', '<b>Magic Mix Juicery</b><br>Juice Bar<br>Price: <b>$</b>$$$', 40.709672, -74.006830, 'fast food'],
+['6', '<b>Brodys Bagels</b><br>Bagels<br>Price: <b>$</b>$$$', 40.710287, -74.007175, 'fast food'],
+['7', '<b>Vietspot Noodle & Sandwich</b><br>Vietnamese<br>Price: <b>$</b>$$$', 40.710571, -74.007608, 'fast food'],
+['8', '<b>Sandwich House</b><br>Sandwiches<br>Price: <b>$</b>$$$', 40.711068, -74.007689, 'fast food'],
+['9', '<b>Harry & Idas Lunchette</b><br>Sandwiches<br>Price: <b>$</b>$$$', 40.713177, -74.008218, 'fast food'],
+['10', '<b>Muscle Maker Grill</b><br>Healthy<br>Price: <b>$</b>$$$', 40.713393, -74.008176, 'fast food'],
+['11', '<b>Benevenuto Cafe</b><br>Deli<br>Price: <b>$$</b>$$', 40.719324, -74.010115 , 'fast food'],
+['12', '<b>Lenwich</b><br>Deli<br>Price: <b>$$</b>$$', 40.713519, -74.008653 , 'fast food'],
+['13', '<b>Pret a Manger</b><br>Salad, Soup & Sandwich<br>Price: <b>$$</b>$$', 40.713247, -74.010207 , 'fast food'],
+['14', '<b>City Acres Market</b><br>Food Court<br>Price: <b>$$</b>$$',40.706667, -74.007718 , 'fast food'],
+['15', '<b>Pisillio Italian Panini</b><br>Sandwiches<br>Price: <b>$$</b>$$',40.710814, -74.007609 , 'fast food'],
+['16', '<b>Mulberry & Vine</b><br>Cafe<br>Price: <b>$$</b>$$',40.715284, -74.010202 , 'fast food'],
+['17', '<b>Melt Shop</b><br>Sandwiches<br>Price: <b>$$</b>$$',40.710178, -74.006561 , 'fast food'],
+['18', '<b>Apple Gourmet</b><br>Deli<br>Price: <b>$$</b>$$',40.712880, -74.008636 , 'fast food'],
+['19', '<b>Just Salad</b><br>Salad<br>Price: <b>$$</b>$$',40.712837, -74.008227 , 'fast food'],
+['20', '<b>Schnippers</b><br>Fried Chicken<br>Price: <b>$$</b>$$',40.714005, -74.009236 , 'fast food'],
+['21', '<b>Hudson Eats @ Brookfield Place</b><br>Food Court<br>Price: $-$$$',40.713360, -74.015233 , 'fast food'],
+
+['22', '<b>Tetsu</b><br>Japanese<br>Price: <b>$$</b>$$',40.717515, -74.005264, 'food'],
+['23', '<b>Racines</b><br>French<br>Price: <b>$$$$</b>',40.714860, -74.007606, 'food'],
+['24', '<b>Little Park</b><br>American<br>Price: <b>$$$</b>$',40.715252, -74.009130, 'food'],
+['25', '<b>Gran Morisi</b><br>Italian<br>Price: <b>$$$$</b>',40.715252, -74.009130, 'food'],
+['26', '<b>Rosa Mexicana</b><br>Mexican<br>Price: <b>$$$</b>$',40.714274, -74.009132, 'food'],
+['27', '<b>CUT by Wolfgang Puck</b><br>Steakhouse<br>Price: <b>$$$$</b>',40.713074, -74.008954, 'food'],
+['28', '<b>Augustine</b><br>French<br>Price: <b>$$$$</b>',40.711458, -74.006896, 'food'],
+['29', '<b>Bocadillo</b><br>Tapas<br>Price: <b>$$$</b>$',40.708981, -74.005837, 'food'],
+['30', '<b>Da Claudio</b><br>Italian<br>Price: <b>$$$$</b>',40.711111, -74.007504, 'food'],
+['31', '<b>Nobu Downtown</b><br>Italian<br>Price: <b>$$$$</b>',40.711050, -74.009461, 'food'],
+['32', '<b>Gunbae</b><br>Korean<br>Price: <b>$$</b>$$',40.714902, -74.010283, 'food'],
+['33', '<b>Trinity Place</b><br>Bar & Restaurant<br>Price: <b>$$$</b>$',40.709183, -74.011411, 'food'],
+['34', '<b>Felice</b><br>Bar & Restaurant<br>Price: <b>$$$</b>$',40.708093, -74.007129, 'food'],
+['35', '<b>Tamarind</b><br>Indian<br>Price: <b>$$$</b>$',40.719408, -74.009034, 'food'],
+['36', '<b>Frenchette</b><br>Brasserie<br>Price: <b>$$$$</b>',40.719851, -74.005735, 'food'],
+['37', '<b>ATLA</b><br>Mexican<br>Price: <b>$$</b>$$',40.727536, -73.993851, 'food'],
+['38', '<b>Antique Garage</b><br>Mediterranean<br>Price: <b>$$$</b>$',40.719814, -74.004022, 'food'],
+['39', '<b>Seamores</b><br>Seafood<br>Price: <b>$$</b>$$',40.720979, -73.996992, 'food'],
+['40', '<b>Le Coucou</b><br>French<br>Price: <b>$$$$</b>',40.719411, -74.000155, 'food'],
+['41', '<b>Anejo</b><br>Mexican<br>Price: <b>$$</b>$$',40.719772, -74.004172, 'food'],
+['42', '<b>La Esquina</b><br>Mexican<br>Price: <b>$$$</b>$',40.721560, -73.997666, 'food'],
+['43', '<b>NoMo Kitchen</b><br>Modern American<br>Price: <b>$$</b>$$',40.720064, -74.000047, 'food'],
+
+['44', '<b>Blue Spoon Coffee Co.</b><br>Price: <b>$$</b>$$',40.714564, -74.006867, 'cafe'],
+['45', '<b>Konditori</b><br>Price: <b>$</b>$$$',40.709695, -74.006685, 'cafe'],
+['46', '<b>Birch Coffee</b><br>Price: <b>$$</b>$$',40.711127, -74.005639, 'cafe'],
+['47', '<b>Irving Farm Coffee Roasters</b><br>Price: <b>$</b>$$$',40.710670, -74.008931, 'cafe'],
+['48', '<b>The Wooly Daily</b><br>Price: <b>$</b>$$$',40.712681, -74.008335, 'cafe'],
+['49', '<b>Aroma Espresso Bar</b><br>Price: <b>$$</b>$$',40.713435, -74.010164, 'cafe'],
+['50', '<b>Starbucks</b><br>Price: <b>$</b>$$$',40.712917, -74.008299, 'cafe'],
+['51', '<b>La Parisienne</b><br>Price: <b>$$</b>$$',40.709902, -74.009465, 'cafe'],
+['52', '<b>Proof Coffee Roasters</b><br>Price: <b>$</b>$$$',40.709692, -74.008629, 'cafe'],
+
+['53', '<b>Manhattan Proper</b><br>Bar<br>Price: <b>$$</b>$$',40.713490, -74.008033, 'bars'],
+['54', '<b>Dark Horse</b><br>Bar<br>Price: <b>$$</b>$$',40.713877, -74.008047, 'bars'],
+['55', '<b>Lilly OBriens Bar & Restaurant </b><br>Irish Pub<br>Price: <b>$$</b>$$',40.713622, -74.008589, 'bars'],
+['56', '<b>Woodrows </b><br>Gastropub<br>Price: <b>$$</b>$$',40.714528, -74.009025, 'bars'],
+['57', '<b>Ward III </b><br>Cocktails<br>Price: <b>$$</b>$$',40.715970, -74.008743, 'bars'],
+['58', '<b>Maxwells Bar & Restaurant </b><br>Bar<br>Price: <b>$$</b>$$',40.715002, -74.006687, 'bars'],
+['59', '<b>The Bar Room At Temple Court </b><br>Hotel Bar at the Beekman<br>Price: <b>$$$</b>$',40.711514, -74.006664, 'bars'],
+['60', '<b>Irish American </b><br>Irish Pub<br>Price: <b>$$</b>$$',40.710264, -74.008660, 'bars'],
+['61', '<b>The Malt House FIDI </b><br>Bar<br>Price: <b>$$</b>$$',40.709853, -74.009454, 'bars'],
+['62', '<b>The Beekman Pub</b><br>Bar<br>Price: <b>$$</b>$$',40.711166, -74.006379, 'bars'],
+['63', '<b>Gunbae</b><br>Karaoke<br>Price: <b>$$</b>$$',40.714886, -74.010251, 'bars'],
+['64', '<b>Mudville Restaurant & Taphouse</b><br>Bar & Wings<br>Price: <b>$$</b>$$',40.715352, -74.008908, 'bars'],
+['65', '<b>Five & Dime</b><br>Cocktails<br>Price: <b>$$</b>$$',40.713026, -74.008284, 'bars'],
+['66', '<b>Arlo Roof Top</b><br>Rooftop Bar<br>Price: <b>$$</b>$$',40.724740, -74.008021, 'bars'],
+['67', '<b>Black Tail</b><br>Cocktails<br>Price: <b>$$$</b>$',40.704719, -74.017945, 'bars'],
+
+['68', '<b>Tenoverten</b><br>Spa',40.710369, -74.006994, 'gyms'],
+['69', '<b>Equinox Tribeca</b><br>Gym<br>Price: <b>$$$$</b>',40.714274, -74.009595, 'gyms'],
+['70', '<b>NY Sports Club</b><br>Gym<br>Price: <b>$$$</b>$',40.711857, -74.008731, 'gyms'],
+['71', '<b>SoulCycle Tribeca</b><br>Cycling<br>Price: <b>$$</b>$$',40.716220, -74.012564, 'gyms'],
+['72', '<b>Blink FIDI</b><br>Gym<br>Price: <b>$$</b>$$',40.711138, -74.007371, 'gyms'],
+['73', '<b>Planet Fitness</b><br>Gym<br>Price: <b>$</b>$$$',40.720930, -74.004374, 'gyms'],
+
+['74', '<b>Smyth Hotel</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.715287, -74.009111, 'hotel'],
+
+['75', '<b>The Beekman</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>',40.711512, -74.006709, 'hotel'],
+
+['76', '<b>The Four Seasons</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>',40.713131, -74.008988, 'hotel'],
+
+['77', '<b>Residence Inn</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.709856, -74.009900, 'hotel'],
+
+['78', '<b>Aloft Manhattan Downtown</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.710645, -74.006776, 'hotel'],
+
+['79', '<b>Millenium Hilton</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.711446, -74.010318, 'hotel'],
+
+['80', '<b>AKA Wall Street</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.708192, -74.007726, 'hotel'],
+
+['81', '<b>Frederick Hotel</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>',40.715751, -74.008963, 'hotel'],
+
+['82', '<b>W Hotel</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.709488, -74.013592, 'hotel'],
+
+['83', '<b>Club Quarters Hotel</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>',40.710071, -74.013865, 'hotel'],
+
+['84', '<b>Conrad New York</b><br><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>',40.715283, -74.015730, 'hotel'],
+
+['85', '<b>CVS</b>',40.710483, -74.007496, 'pharmacy'],
+['86', '<b>Rite Aid</b>',40.712135, -74.000274, 'pharmacy'],
+['87', '<b>Rite Aid</b>',40.712736, -74.015267, 'pharmacy'],
+['88', '<b>Block Drug Store</b>',40.727703, -73.988841, 'pharmacy'],
+['89', '<b>Duane Reade</b>',40.713262, -74.007907, 'pharmacy'],
+
+['90', '<b>City MD</b><br>Weekday Hours: 8A - 8P<br>Weekend Hours: 9A - 5P',40.715113, -74.007102, 'urgent care'],
+['91', '<b>NYU Langone Medhattan Urgent Care</b><br>Weekday Hours: 8A - 8P<br>Weekend Hours: 9A - 5P',40.709827, -74.011992, 'urgent care'],
+['92', '<b>Emergency Medical Care</b><br>Weekday Hours: 7A - 12A<br>Weekend Hours: 7A - 12A',40.716829, -74.012211, 'urgent care'],
+['93', '<b>City MD</b><br>Weekday Hours: 8A - 8P<br>Weekend Hours: 9A - 5P',40.710608, -74.008244, 'urgent care'],
+
+['94', '<b>TD Bank</b>',40.713683, -74.007066, 'banks'],
+['95', '<b>Chase Bank</b>',40.711119, -74.008600, 'banks'],
+['96', '<b>Wells Fargo</b>',40.721091, -74.000740, 'banks'],
+['97', '<b>Citi Bank</b>',40.713074, -74.007729, 'banks'],
+['98', '<b>Santander Bank</b>',40.713513, -74.012010, 'banks'],
+['99', '<b>Bank of America</b>',40.713794, -74.006873, 'banks'],
+];
+/**
+* Function to init map
+*/
+function initialize() {
+var center = new google.maps.LatLng(40.712524, -74.008358);
+var mapOptions = {
+zoom: 15,
+center: center,
+mapTypeId: google.maps.MapTypeId.TERRAIN,
+disableDefaultUI: true
+};
+map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+for (i = 0; i < markers1.length; i++) {
+addMarker(markers1[i]);
+}
+}
+/**
+* Function to add marker to map
+*/
+function addMarker(marker) {
+var category = marker[4];
+var title = marker[1];
+var pos = new google.maps.LatLng(marker[2], marker[3]);
+var content = marker[1];
+marker1 = new google.maps.Marker({
+title: title,
+position: pos,
+category: category,
+map: map
+});
+gmarkers1.push(marker1);
+// Marker click listener
+google.maps.event.addListener(marker1, 'click', (function(marker1, content) {
+return function() {
+console.log('Gmarker 1 gets pushed');
+infowindow.setContent(content);
+infowindow.open(map, marker1);
+map.panTo(this.getPosition());
+map.setZoom(15);
+}
+})(marker1, content));
+}
+/**
+* Function to filter markers by category
+*/
+filterMarkers = function(category) {
+for (i = 0; i < markers1.length; i++) {
+marker = gmarkers1[i];
+// If is same category or category not picked
+if (marker.category == category || category.length === 0) {
+marker.setVisible(true);
+}
+// Categories don't match
+else {
+marker.setVisible(false);
+}
+}
+}
+// Init map
+initialize();
+}
+</script>
+</head>
+<body>
+
+<script type="text/javascript">
+if (screen.width >= 699) {
+document.location = "/desktop.html";
+}
+</script>
+
+<div id="myNav" class="overlay">
+  <div class="overlay-content">
+	<a href="/index">Home</a>
+    <a href="/guidelines">Community Guidelines</a>
+    <a href="/contact">Contact</a>
+    <a href="/nearby">Nearby</a>
+    <a href="/calendar">Calendar of Events</a>
+    <a href="/howto">How To</a>
+    <a href="/useful">Useful</a>
+    <a href="/well">WELL @ 233</a>
+    <a href="/pets">Pets</a>
+    <a href="/libraryconnect">Rep Connect</a>
+    <br>
+    <br>
+    <br>
+    <a href="http://www.mmoser.com"><i class="far fa-copyright"></i> 2018 M Moser Associate LLC</a>
+  </div> 
+</div>
+
+<button class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+
+<div class="home">NEARBY | PROJECT233</div>
+
+<div id="map-canvas"></div>
+	
+<div class="flex-container">
+<button class="button" value="fast food" onclick="filterMarkers(this.value)"><i class="fas fa-utensils"></i></button>
+<button class="button" value="food" onclick="filterMarkers(this.value)"><i class="fas fa-wine-glass"></i></button>
+<button class="button" value="cafe" onclick="filterMarkers(this.value)"><i class="fas fa-coffee"></i></button>
+<button class="button" value="bars" onclick="filterMarkers(this.value)"><i class="fas fa-beer"></i></button>
+<button class="button" value="pharmacy" onclick="filterMarkers(this.value)"><i class="fas fa-pills"></i></button>
+<button class="button" value="urgent care" onclick="filterMarkers(this.value)"><i class="fas fa-hospital-symbol"></i></button>
+<button class="button" value="banks" onclick="filterMarkers(this.value)"><i class="fas fa-dollar-sign"></i></button>
+<button class="button" value="gyms" onclick="filterMarkers(this.value)"><i class="fas fa-football-ball"></i></button>
+<button class="button" value="hotel" onclick="filterMarkers(this.value)"><i class="fas fa-bed"></i></button>
+</div>
+
+
+<script>
+  var hamburger = document.querySelector(".hamburger");
+  hamburger.addEventListener("click", function openNav() {
+  		document.getElementById("myNav").style.height = "100%";
+		this.classList.toggle("is-active");
+    	if (this.classList.contains('is-active')){
+      	openNav();
+    } else {
+      closeNav();
+    }
+  });
+</script>
+
+<script>
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+</script>
+
+<script>
+// tell the embed parent frame the height of the content
+if (window.parent && window.parent.parent){
+window.parent.parent.postMessage(["resultsFrame", {
+height: document.body.getBoundingClientRect().height,
+slug: "drytwvL8"
+}], "*")
+}
+</script>
+
+	
+</body>
+</html>
